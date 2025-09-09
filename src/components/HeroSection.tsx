@@ -1,4 +1,6 @@
+// src/components/HeroSection.tsx
 import { ChevronDown, Guitar } from 'lucide-react';
+import { CustomVideoPlayer } from './CustomVideoPlayer'; // Importe o player reutilizável
 
 export function HeroSection() {
   return (
@@ -7,13 +9,6 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-          <div className="grid grid-cols-12 gap-4 opacity-5">
-            {[...Array(144)].map((_, i) => (
-              <div key={i} className="w-1 h-1 bg-orange-500 rounded-full"></div>
-            ))}
-          </div>
-        </div>
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -21,22 +16,14 @@ export function HeroSection() {
           De <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Iniciante a Violonista Completo</span> <span className="text-4xl md:text-5xl lg:text-6xl text-gray-300">em Apenas 90 Dias</span>
         </h1>
         
-        {/* Vídeo de Apresentação */}
+        {/* Vídeo de Apresentação agora usando o componente */}
         <div className="mb-12 max-w-4xl mx-auto">
           <div className="relative bg-gray-900/50 backdrop-blur-sm border border-orange-500/30 rounded-2xl p-4">
-            <div className="aspect-video bg-black rounded-xl overflow-hidden">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/YGphFOASpzI?si=fRf4qtzw8P8Oj5TW" 
-                title="YouTube video player" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-                className="rounded-xl"
-              ></iframe>
-            </div>
+            <CustomVideoPlayer
+              src="/video-de-vendas-violao-puro-e-simples.mp4"
+              poster="/violao-puro-e-simples-banner.png" // Aqui está sua nova thumbnail!
+              aspectRatio="horizontal"
+            />
           </div>
         </div>
         

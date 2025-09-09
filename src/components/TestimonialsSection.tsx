@@ -4,7 +4,6 @@
 import { CustomVideoPlayer } from './CustomVideoPlayer';
 
 export function TestimonialsSection() {
-    // Array final, sem a propriedade posterSrc
     const testimonials = [
         { videoSrc: "/depoimento-3.mp4" },
         { videoSrc: "/depoimento-2.mp4" },
@@ -26,13 +25,11 @@ export function TestimonialsSection() {
             <div key={index} className="group relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative bg-black/50 backdrop-blur-sm border border-gray-800 hover:border-orange-500/30 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                
-                {/* A chamada ao componente agora é mais simples, sem o poster */}
                 <CustomVideoPlayer 
                   src={testimonial.videoSrc} 
                   aspectRatio="vertical"
+                  showInitialPlayIcon={true} // Diz ao player para mostrar o ícone!
                 />
-
               </div>
             </div>
           ))}

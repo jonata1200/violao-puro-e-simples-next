@@ -1,8 +1,12 @@
 // src/components/HeroSection.tsx
+// REMOVIDO: "use client";, useRef, e useEffect, pois não são mais necessários.
+
 import { ChevronDown, Guitar } from 'lucide-react';
-import { CustomVideoPlayer } from './CustomVideoPlayer'; // Importe o player reutilizável
+import { CustomVideoPlayer } from './CustomVideoPlayer'; // Importa o nosso player
 
 export function HeroSection() {
+  // REMOVIDO: Toda a lógica de useRef e useEffect para o autoplay foi retirada.
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
@@ -16,13 +20,15 @@ export function HeroSection() {
           De <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Iniciante a Violonista Completo</span> <span className="text-4xl md:text-5xl lg:text-6xl text-gray-300">em Apenas 90 Dias</span>
         </h1>
         
-        {/* Vídeo de Apresentação agora usando o componente */}
         <div className="mb-12 max-w-4xl mx-auto">
           <div className="relative bg-gray-900/50 backdrop-blur-sm border border-orange-500/30 rounded-2xl p-4">
             <CustomVideoPlayer
+              // REMOVIDO: ref={videoRef}
+              // REMOVIDO: startMuted={true}
               src="/video-de-vendas-violao-puro-e-simples.mp4"
-              poster="/violao-puro-e-simples-banner.png" // Aqui está sua nova thumbnail!
+              poster="/violao-puro-e-simples-banner.png"
               aspectRatio="horizontal"
+              showInitialPlayIcon={true} // ADICIONADO: Agora o ícone de play sempre aparece no início
             />
           </div>
         </div>

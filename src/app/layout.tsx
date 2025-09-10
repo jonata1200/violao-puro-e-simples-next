@@ -6,11 +6,11 @@ import { GoogleAnalytics } from '@/components/GoogleAnalytics'; // Importação 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Violão Puro e Simples | De Iniciante a Violonista em 90 Dias',
-  description: 'Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em 90 dias com foco em música cristã e popular.',
+  title: 'Violão Puro e Simples | De Iniciante a Violonista em Pouco Tempo',
+  description: 'Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.',
   openGraph: {
     title: 'Violão Puro e Simples | O Curso Completo',
-    description: 'Transforme-se em um violonista completo em 90 dias com um método testado por mais de 40 anos.',
+    description: 'Transforme-se em um violonista completo em Pouco Tempo com um método testado por mais de 40 anos.',
     url: 'https://violaopuroesimples.com.br',
     siteName: 'Violão Puro e Simples',
     images: [

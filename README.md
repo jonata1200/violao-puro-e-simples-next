@@ -2,8 +2,6 @@
 
 > Uma landing page moderna e de alta conversão para o curso de violão de Gezo Rodrigues, construída com Next.js, TypeScript e Tailwind CSS.
 
-![Banner do Curso Violão Puro e Simples](https://github.com/user-attachments/assets/b83526c8-f865-4f36-829d-09c0c8046b0d)
-
 
 ## Sobre o Projeto
 

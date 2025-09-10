@@ -17,7 +17,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight pt-4">
-          De <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Iniciante a Violonista Completo</span> <span className="text-4xl md:text-5xl lg:text-6xl text-gray-300">em Apenas 90 Dias</span>
+          De <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Iniciante a Violonista Completo</span> <span className="text-4xl md:text-5xl lg:text-6xl text-gray-300">em Pouco Tempo</span>
         </h1>
         
         <div className="mb-12 max-w-4xl mx-auto">

@@ -15,28 +15,47 @@ import { Footer } from '@/components/Footer';
 
 export default function HomePageClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  
+  // O estado inicial agora é zero, será calculado no useEffect
   const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 45,
-    seconds: 30
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   });
 
   useEffect(() => {
+    const getExpirationTime = () => {
+      let expirationTime = localStorage.getItem('offerExpiration');
+      if (!expirationTime) {
+        // Se não houver tempo de expiração, crie um para 24 horas a partir de agora
+        const newExpirationTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+        expirationTime = String(newExpirationTime);
+        localStorage.setItem('offerExpiration', expirationTime);
+      }
+      return parseInt(expirationTime, 10);
+    };
+
+    const expirationTime = getExpirationTime();
+
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
+      const now = new Date().getTime();
+      const distance = expirationTime - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft({ hours, minutes, seconds });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, []); // O array de dependências vazio garante que isso rode apenas uma vez
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);

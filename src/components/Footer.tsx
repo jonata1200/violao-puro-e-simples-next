@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import logoImage from '../../public/logo.png';
+
 export function Footer() {
   return (
     <footer className="bg-gray-900 border-t border-orange-500/20 py-12">
@@ -5,11 +8,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <div className="flex items-center space-x-3">
-              <img 
-                src="/logo.png" 
-                // AQUI ESTÁ A MUDANÇA:
-                alt="Logo do curso Violão Puro e Simples" 
+              <Image
+                src={logoImage}
+                alt="Logo do curso Violão Puro e Simples"
                 className="h-24 w-auto"
+                // Como o Tailwind está definindo a altura, o Next.js se ajusta.
+                // Para logos, isso geralmente funciona bem.
               />
             </div>
           </div>

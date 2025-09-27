@@ -4,16 +4,13 @@ export function CourseModulesSection() {
           number: "01",
           title: "Módulo 1 - Violão do Zero", 
           desc: [
-            "Primeiros Acordes Parte 1 e Parte 2",
-            "Aula inicial sobre solo (aquecimento e Ode Alegria)",
-            "Afinação com afinador eletrônico e digital",
-            "Afinação com método tradicional",
-            "Primeira Música (popular)",
-            "Primeira Música (Cristã)",
-            "Asa Branca (solo no grave e no agudo)",
-            "Oração Pela Família (Cristã)",
-            "Afinação Tradicional e com afinador digital",
-            "Violão iniciação e aperfeiçoamento"
+            "Postura e primeiros acordes (Partes 1 e 2)",
+            "Como afinar seu violão (com afinador e de ouvido)",
+            "Técnica de solo inicial com 'Ode à Alegria'",
+            "Executando sua primeira música popular",
+            "Executando sua primeira música cristã ('Oração Pela Família')",
+            "Solo de 'Asa Branca' (notas graves e agudas)",
+            "Fundamentos para iniciação e aperfeiçoamento"
           ], 
         },
         { 

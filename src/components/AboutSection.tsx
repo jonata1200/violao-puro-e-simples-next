@@ -1,4 +1,6 @@
 import { Music, Award, BookOpen, Users } from 'lucide-react';
+import Image from 'next/image';
+import gezoImage from '../../public/gezo.png';
 
 export function AboutSection() {
   const authorFeatures = [
@@ -16,11 +18,12 @@ export function AboutSection() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-transparent rounded-2xl blur-xl"></div>
               <div className="relative bg-gray-900/50 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8">
-                <img 
-                  src="/gezo.png" 
-                  // AQUI ESTÁ A MUDANÇA:
+                <Image 
+                  src={gezoImage}
                   alt="Foto de Gezo Rodrigues, professor do curso Violão Puro e Simples" 
                   className="w-full max-w-md mx-auto rounded-xl shadow-2xl"
+                  placeholder="blur" // Adiciona um efeito de desfoque elegante enquanto a imagem carrega
+                  // width e height são inferidos automaticamente por causa da importação estática
                 />
                 <div className="mt-6 text-center">
                   <div className="inline-flex items-center space-x-2 bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2">

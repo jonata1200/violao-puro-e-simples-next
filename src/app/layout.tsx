@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Violão Puro e Simples | De Iniciante a Violonista em Pouco Tempo',
   description: 'Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.',
+  
+  // --- NOVAS TAGS ABAIXO ---
+  keywords: 'curso de violão, aprender violão, violão para iniciantes, violão do zero, música cristã, gezo rodrigues, violão online, aula de violão',
+  robots: 'index, follow', // Garante que o Google vai indexar e seguir os links
+  
   openGraph: {
     title: 'Violão Puro e Simples | O Curso Completo',
     description: 'Transforme-se em um violonista completo em Pouco Tempo com um método testado por mais de 40 anos.',
@@ -23,6 +28,14 @@ export const metadata: Metadata = {
     ],
     locale: 'pt_BR',
     type: 'website',
+  },
+  
+  // --- NOVA SEÇÃO PARA O TWITTER ---
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Violão Puro e Simples | De Iniciante a Violonista em Pouco Tempo',
+    description: 'Aprenda a tocar violão do zero com o método testado de Gezo Rodrigues.',
+    images: ['https://violaopuroesimples.com.br/gezo.png'],
   },
 };
 
@@ -44,7 +57,7 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Course",
             "name": "Violão Puro e Simples",
-            "description": "Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em 90 dias com foco em música cristã e popular.",
+            "description": "Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.",
             "provider": {
               "@type": "Person",
               "name": "Gezo Rodrigues"
@@ -52,7 +65,8 @@ export default function RootLayout({
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "5",
-              "reviewCount": "4" // Baseado nos 4 depoimentos que você tem na página
+              // TODO: Atualizar este número manualmente se os depoimentos mudarem.
+              "reviewCount": "3" // Atualmente existem 3 vídeos de depoimento.
             }
           }) }}
         />

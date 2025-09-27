@@ -13,7 +13,6 @@ export function OfferSection() {
         "✅ Suporte direto com Gezo Rodrigues", 
         "✅ Garantia incondicional de 7 dias",
         "✅ Certificado de conclusão",
-        "✅ Atualizações gratuitas para sempre",
         "✅ Bônus: Songbook com 50 músicas cifradas"
     ];
 

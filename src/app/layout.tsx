@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { GoogleAnalytics } from '@/components/GoogleAnalytics'; // Importação do novo componente
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { CookieBanner } from '@/components/CookieBanner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -82,6 +83,7 @@ export default function RootLayout({
         
         {/* Componente do Google Analytics é chamado aqui */}
         <GoogleAnalytics />
+        <CookieBanner />
       </body>
     </html>
   )

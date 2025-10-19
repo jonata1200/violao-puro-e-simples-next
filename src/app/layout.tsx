@@ -6,12 +6,18 @@ import { GoogleAnalytics } from '@/components/GoogleAnalytics'; // Importação 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  // --- NOVA LINHA AQUI ---
+  metadataBase: new URL('https://violaopuroesimples.com.br'),
+
   title: 'Violão Puro e Simples | De Iniciante a Violonista em Pouco Tempo',
   description: 'Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.',
-  
-  // --- NOVAS TAGS ABAIXO ---
   keywords: 'curso de violão, aprender violão, violão para iniciantes, violão do zero, música cristã, gezo rodrigues, violão online, aula de violão',
-  robots: 'index, follow', // Garante que o Google vai indexar e seguir os links
+  robots: 'index, follow',
+  
+  // --- NOVA SEÇÃO AQUI ---
+  alternates: {
+    canonical: '/',
+  },
   
   openGraph: {
     title: 'Violão Puro e Simples | O Curso Completo',

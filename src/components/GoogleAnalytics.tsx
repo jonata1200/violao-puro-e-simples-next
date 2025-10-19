@@ -3,7 +3,7 @@
 import Script from 'next/script'
 
 export function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = "G-7CQYL0VX5Q";
 
   // Se o ID não estiver definido, não renderize nada
   if (!gaId) {

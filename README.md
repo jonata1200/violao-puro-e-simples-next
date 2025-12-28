@@ -1,127 +1,387 @@
-# Violão Puro e Simples - Landing Page
+# 🎸 Violão Puro e Simples
 
-> Uma landing page moderna e de alta conversão para o curso de violão de Gezo Rodrigues, construída com Next.js, TypeScript e Tailwind CSS.
+![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+![License](https://img.shields.io/badge/License-Private-red?style=for-the-badge)
 
+## 📋 Descrição do Projeto
 
-## Sobre o Projeto
+**Violão Puro e Simples** é uma landing page moderna e responsiva desenvolvida para promover o curso de violão online do professor Gezo Rodrigues. O projeto apresenta uma experiência visual imersiva, focada em conversão, com design elegante e funcionalidades interativas que destacam os benefícios do curso e facilitam a jornada do visitante até a compra.
 
-Este projeto é uma landing page completa, projetada para apresentar e vender o curso "Violão Puro e Simples". O foco foi criar uma experiência de usuário imersiva, rápida e visualmente atraente, com o objetivo de maximizar as conversões de visitantes em alunos.
+### O Problema que Resolve
 
-A página guia o usuário por uma jornada, apresentando o professor, os módulos do curso, os benefícios, depoimentos em vídeo e chamadas para ação (CTAs) claras.
+O projeto resolve a necessidade de uma presença digital profissional para um curso de violão online, oferecendo:
+
+- **Experiência de usuário otimizada**: Interface moderna e responsiva que funciona perfeitamente em todos os dispositivos
+- **Alta conversão**: Design focado em vendas com CTAs estratégicos e seções de urgência
+- **Performance otimizada**: Construído com Next.js 15 para carregamento rápido e SEO aprimorado
+- **Conformidade legal**: Páginas de políticas (privacidade, cookies, termos) em conformidade com LGPD
+- **Analytics integrado**: Google Analytics configurado para acompanhamento de métricas
+
+### Por que é Útil
+
+Este projeto serve como um exemplo completo de landing page moderna, demonstrando:
+
+- Arquitetura escalável com Next.js App Router
+- Componentização reutilizável em React
+- Estilização moderna com Tailwind CSS
+- Player de vídeo customizado
+- Gerenciamento de estado do cliente
+- SEO otimizado com metadados estruturados
+- Deploy containerizado com Docker
 
 ---
 
-## ✨ Principais Funcionalidades
+## 🖼️ Screenshots / Demonstração
 
-- **Player de Vídeo 100% Personalizado:** Um player de vídeo reutilizável foi construído do zero, oferecendo uma experiência de marca consistente, sem logos do YouTube.
-  - Controles de Play/Pause.
-  - Barra de progresso clicável.
-  - Controle de volume com slider.
-  - Botão para modo de tela cheia.
-  - Suporte para thumbnails personalizadas ou geração automática a partir do primeiro frame do vídeo.
+### Hero Section
+![Hero Section](public/screenshots/hero-section.png) <!-- Insira aqui um print da tela principal com o vídeo de vendas -->
 
-- **Depoimentos em Vídeo:** A seção de prova social foi modernizada para usar vídeos verticais, formato ideal para engajamento em dispositivos móveis.
+### Seção de Módulos do Curso
+![Módulos do Curso](public/screenshots/modulos-curso.png) <!-- Insira aqui um print da seção que mostra os 14 módulos do curso -->
 
-- **Design Responsivo (Mobile-First):** Utilizando Tailwind CSS, a página é totalmente adaptável a qualquer tamanho de tela, de celulares a desktops.
+### Seção de Depoimentos
+![Depoimentos](public/screenshots/depoimentos.png) <!-- Insira aqui um print da seção de depoimentos em vídeo dos alunos -->
 
-- **Otimização para SEO:**
-  - **Metadata Otimizada:** Títulos e descrições configurados no `layout.tsx` para melhor ranqueamento.
-  - **Dados Estruturados (Schema.org):** Implementação de JSON-LD para o tipo "Course", ajudando os motores de busca a entenderem o conteúdo da página.
+### Seção de Oferta
+![Oferta](public/screenshots/oferta.png) <!-- Insira aqui um print da seção de oferta com preços e garantia -->
 
-- **Integração com Google Analytics:** Configuração limpa e otimizada utilizando as melhores práticas do Next.js, com o ID de rastreamento armazenado em variáveis de ambiente.
+---
 
-- **Componentização com React:** A interface é dividida em componentes reutilizáveis e fáceis de manter, localizados em `src/components`.
+## ✨ Funcionalidades Principais
+
+### 🎯 Seções da Landing Page
+
+- **Hero Section**: Seção principal com vídeo de vendas, estatísticas do curso e CTA destacado
+- **Sobre o Professor**: Apresentação do Gezo Rodrigues com credenciais e experiência
+- **Módulos do Curso**: Exibição detalhada dos 14 módulos com conteúdo programático
+- **Benefícios**: Destaque dos principais benefícios e diferenciais do curso
+- **Oferta Especial**: Apresentação do preço, formas de pagamento e garantia
+- **Depoimentos**: Vídeos de alunos reais compartilhando suas experiências
+- **Oferta com Urgência**: Contador regressivo para criar senso de urgência
+- **FAQ**: Seção de perguntas frequentes com acordeão interativo
+- **Bônus**: Apresentação dos bônus inclusos no curso
+- **CTA Final**: Chamada final para ação antes do rodapé
+- **Footer**: Rodapé com links legais e informações de contato
+
+### 🎬 Player de Vídeo Customizado
+
+- Controles personalizados (play/pause, volume, tela cheia)
+- Suporte para vídeos horizontais e verticais
+- Barra de progresso interativa
+- Ícone de play inicial configurável
+- Design responsivo e acessível
+
+### 🍪 Conformidade Legal
+
+- **Banner de Cookies**: Banner de consentimento LGPD com armazenamento local
+- **Política de Privacidade**: Página completa em conformidade com LGPD
+- **Política de Cookies**: Informações sobre uso de cookies
+- **Termos de Uso**: Termos e condições do serviço
+
+### 📊 SEO e Analytics
+
+- **Metadados otimizados**: Open Graph e Twitter Cards configurados
+- **Schema.org**: Dados estruturados para curso (Course schema)
+- **Sitemap.xml**: Sitemap automático gerado pelo Next.js
+- **Robots.txt**: Configuração para indexação pelos buscadores
+- **Google Analytics**: Integração completa para tracking
+
+### 🎨 Design e UX
+
+- **Design moderno**: Interface dark com gradientes e efeitos visuais
+- **Totalmente responsivo**: Adaptação perfeita para mobile, tablet e desktop
+- **Animações suaves**: Transições e hover effects para melhor experiência
+- **Acessibilidade**: Componentes semânticos e ARIA labels
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Framework:** [Next.js](https://nextjs.org/) (com App Router)
-- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
-- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-- **Ícones:** [Lucide React](https://lucide.dev/)
-- **Analytics:** [Google Analytics](https://analytics.google.com/)
-- **Deployment:** [Vercel](https://vercel.com/)
+### Core Framework
+- **[Next.js 15.5.2](https://nextjs.org/)**: Framework React com App Router, SSR, SSG e otimizações automáticas
+- **[React 19.1.0](https://react.dev/)**: Biblioteca JavaScript para construção de interfaces
+- **[TypeScript 5.0](https://www.typescriptlang.org/)**: Superset JavaScript com tipagem estática
+
+### Estilização
+- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)**: Framework CSS utility-first para design rápido
+- **[PostCSS 8](https://postcss.org/)**: Processador CSS para transformações
+- **[Autoprefixer](https://github.com/postcss/autoprefixer)**: Plugin PostCSS para prefixos CSS automáticos
+
+### Ícones e UI
+- **[Lucide React 0.542.0](https://lucide.dev/)**: Biblioteca de ícones moderna e leve
+
+### Ferramentas de Desenvolvimento
+- **[ESLint 8](https://eslint.org/)**: Linter para JavaScript/TypeScript
+- **[ESLint Config Next](https://nextjs.org/docs/app/building-your-application/configuring/eslint)**: Configuração ESLint otimizada para Next.js
+
+### Deploy e Containerização
+- **[Docker](https://www.docker.com/)**: Containerização para deploy consistente
+- **Node.js 20**: Runtime JavaScript (usado no Dockerfile)
+
+### Integrações Externas
+- **Google Analytics**: Tracking de visitantes e comportamento
+- **Hotmart**: Plataforma de pagamento e gestão de curso online
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 📦 Pré-requisitos
 
-Siga os passos abaixo para rodar o projeto em seu ambiente de desenvolvimento.
+Antes de começar, certifique-se de ter instalado em sua máquina:
 
-### Pré-requisitos
+- **[Node.js](https://nodejs.org/)** (versão 20 ou superior)
+  - Verifique a instalação: `node --version`
+- **[npm](https://www.npmjs.com/)** (geralmente vem com Node.js)
+  - Verifique a instalação: `npm --version`
+- **[Git](https://git-scm.com/)** (para clonar o repositório)
+  - Verifique a instalação: `git --version`
 
-- Node.js (versão 18.18.0 ou superior)
-- npm, yarn ou pnpm
+### Opcional (para deploy com Docker)
+- **[Docker](https://www.docker.com/)** (versão 20 ou superior)
+  - Verifique a instalação: `docker --version`
+- **[Docker Compose](https://docs.docker.com/compose/)** (geralmente vem com Docker Desktop)
 
-### 1. Instalação
+---
 
-Clone o repositório e instale as dependências:
+## 🚀 Instalação e Execução
+
+### 1. Clonar o Repositório
 
 ```bash
-git clone https://[URL_DO_SEU_REPOSITORIO]
-cd [NOME_DA_PASTA]
+git clone https://github.com/seu-usuario/violao-puro-e-simples-next.git
+cd violao-puro-e-simples-next
+```
+
+### 2. Instalar Dependências
+
+```bash
 npm install
 ```
 
-### 2. Configuração das Variáveis de Ambiente
+Este comando irá instalar todas as dependências listadas no `package.json`, incluindo:
+- Next.js e React
+- TypeScript e tipos
+- Tailwind CSS e plugins
+- ESLint e configurações
 
-Para que o Google Analytics funcione, você precisa configurar seu ID de rastreamento.
-
-1.  Na raiz do projeto, crie um arquivo chamado `.env.local`.
-2.  Copie o conteúdo do exemplo abaixo para o seu novo arquivo.
-
-**Arquivo `.env.local`:**
-
-```env
-# Substitua G-XXXXXXXXXX pelo seu ID de medição do Google Analytics
-NEXT_PUBLIC_GA_ID=G-7CQYL0VX5Q
-```
-
-**Importante:** O prefixo `NEXT_PUBLIC_` é necessário para que a variável de ambiente seja acessível no navegador.
-
-### 3. Rodando o Servidor de Desenvolvimento
-
-Execute o seguinte comando para iniciar o servidor:
+### 3. Executar em Modo de Desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+O servidor de desenvolvimento será iniciado e você poderá acessar a aplicação em:
+- **URL Local**: [http://localhost:3000](http://localhost:3000)
+
+O Next.js possui hot-reload automático, então qualquer alteração nos arquivos será refletida imediatamente no navegador.
+
+### 4. Build para Produção
+
+Para criar uma build otimizada para produção:
+
+```bash
+npm run build
+```
+
+Este comando irá:
+- Compilar TypeScript
+- Otimizar imagens e assets
+- Gerar páginas estáticas quando possível
+- Criar bundle otimizado com code splitting
+
+### 5. Executar Build de Produção
+
+Após o build, você pode executar a versão de produção localmente:
+
+```bash
+npm start
+```
+
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000) em modo produção.
+
+### 6. Linting
+
+Para verificar problemas de código:
+
+```bash
+npm run lint
+```
+
+---
+
+## 🐳 Deploy com Docker
+
+O projeto inclui um `Dockerfile` otimizado para produção usando multi-stage build.
+
+### Build da Imagem Docker
+
+```bash
+docker build -t violao-puro-e-simples .
+```
+
+### Executar Container
+
+```bash
+docker run -p 3000:3000 violao-puro-e-simples
+```
+
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+
+### Docker Compose (Opcional)
+
+Você pode criar um arquivo `docker-compose.yml` para facilitar o gerenciamento:
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+```
+
+Execute com:
+
+```bash
+docker-compose up
+```
 
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```
-.
-├── public/                 # Arquivos estáticos (imagens, vídeos, fontes)
-│   ├── video-de-vendas.mp4
-│   ├── depoimento-1.mp4
-│   └── ...
+violao-puro-e-simples-next/
+│
+├── public/                          # Arquivos estáticos
+│   ├── videos/                      # Pasta de vídeos
+│   │   ├── depoimento-1.mp4        # Vídeo depoimento 1
+│   │   ├── depoimento-2.mp4        # Vídeo depoimento 2
+│   │   ├── depoimento-3.mp4        # Vídeo depoimento 3
+│   │   └── video-de-vendas-violao-puro-e-simples.mp4  # Vídeo principal de vendas
+│   ├── screenshots/                 # Pasta de screenshots para documentação
+│   │   └── (screenshots do README serão adicionados aqui)
+│   ├── gezo.png                    # Foto do professor
+│   ├── logo.png                    # Logo do curso
+│   └── violao-puro-e-simples-banner.png  # Banner principal
+│
 ├── src/
-│   ├── app/                # Rotas e layouts principais do Next.js
-│   │   ├── layout.tsx      # Layout raiz da aplicação
-│   │   ├── page.tsx        # Página principal (Home)
-│   │   └── globals.css     # Estilos globais do Tailwind
+│   ├── app/                        # App Router do Next.js
+│   │   ├── globals.css             # Estilos globais
+│   │   ├── layout.tsx              # Layout raiz com metadados e providers
+│   │   ├── page.tsx                # Página inicial (server component)
+│   │   ├── HomePageClient.tsx      # Componente cliente da home
+│   │   ├── robots.ts               # Configuração robots.txt
+│   │   ├── sitemap.ts              # Geração automática do sitemap
+│   │   ├── politica-de-privacidade/  # Página de política de privacidade
+│   │   ├── politica-de-cookies/    # Página de política de cookies
+│   │   └── termos-de-uso/          # Página de termos de uso
 │   │
-│   └── components/         # Componentes React reutilizáveis
-│       ├── HeroSection.tsx
-│       ├── TestimonialsSection.tsx
-│       ├── CustomVideoPlayer.tsx # Nosso player de vídeo customizado
-│       ├── GoogleAnalytics.tsx   # Componente para o script do GA
-│       └── ...
-├── .env.local              # Variáveis de ambiente (NÃO versionado)
-├── next.config.ts          # Configurações do Next.js
-├── tailwind.config.ts      # Configurações do Tailwind CSS
-└── package.json            # Dependências e scripts do projeto
+│   └── components/                 # Componentes React reutilizáveis
+│       ├── AboutSection.tsx        # Seção sobre o professor
+│       ├── BenefitsSection.tsx     # Seção de benefícios
+│       ├── BonusSection.tsx        # Seção de bônus
+│       ├── CookieBanner.tsx        # Banner de consentimento de cookies
+│       ├── CourseModulesSection.tsx # Seção de módulos do curso
+│       ├── CustomVideoPlayer.tsx   # Player de vídeo customizado
+│       ├── FaqSection.tsx          # Seção de perguntas frequentes
+│       ├── FinalCtaSection.tsx     # CTA final
+│       ├── Footer.tsx              # Rodapé
+│       ├── GoogleAnalytics.tsx     # Integração Google Analytics
+│       ├── HeroSection.tsx         # Seção hero principal
+│       ├── OfferSection.tsx        # Seção de oferta
+│       ├── TestimonialsSection.tsx # Seção de depoimentos
+│       └── TimedOfferSection.tsx    # Seção de oferta com timer
+│
+├── .next/                          # Build output (gerado automaticamente)
+├── node_modules/                   # Dependências (gerado automaticamente)
+│
+├── Dockerfile                      # Configuração Docker para produção
+├── eslint.config.mjs              # Configuração ESLint
+├── next.config.ts                 # Configuração Next.js
+├── package.json                   # Dependências e scripts
+├── postcss.config.mjs             # Configuração PostCSS
+├── tailwind.config.ts             # Configuração Tailwind CSS
+├── tsconfig.json                  # Configuração TypeScript
+└── README.md                      # Este arquivo
 ```
+
+### Explicação das Pastas Principais
+
+- **`src/app/`**: Contém as rotas e páginas usando o App Router do Next.js 15. Cada pasta representa uma rota.
+- **`src/components/`**: Componentes React reutilizáveis organizados por funcionalidade.
+- **`public/`**: Arquivos estáticos servidos diretamente (imagens, vídeos, favicons).
+- **`.next/`**: Pasta gerada automaticamente durante o build (não versionada no Git).
 
 ---
 
-## 🚢 Deploy
+## 👤 Autor
 
-A maneira mais fácil de fazer o deploy desta aplicação é usando a [Vercel Platform](https://vercel.com/new).
+**Gezo Rodrigues**
 
-**Importante:** Ao fazer o deploy na Vercel, não se esqueça de adicionar a variável de ambiente `NEXT_PUBLIC_GA_ID` nas configurações do seu projeto na Vercel para que o Google Analytics funcione em produção.
+- **Profissional**: Músico e professor de violão com 40 anos de experiência
+- **Credenciais**: Inscrito na OMB (Ordem dos Músicos do Brasil) desde 1987
+- **Especialização**: Método próprio de ensino testado e aprovado por centenas de alunos
+- **Website**: [violaopuroesimples.com.br](https://violaopuroesimples.com.br)
+
+---
+
+## 📄 Licença
+
+Este projeto é **privado e proprietário**. Todos os direitos reservados.
+
+- O código-fonte é propriedade de Gezo Rodrigues
+- Não é permitida a reprodução, distribuição ou uso comercial sem autorização
+- Imagens, vídeos e conteúdo são protegidos por direitos autorais
+
+Para questões sobre licenciamento ou uso, entre em contato através do site oficial.
+
+---
+
+## 🔗 Links Úteis
+
+- **Site Oficial**: [violaopuroesimples.com.br](https://violaopuroesimples.com.br)
+- **Página de Compra**: [Hotmart - Violão Puro e Simples](https://pay.hotmart.com/S37582308X)
+- **Documentação Next.js**: [nextjs.org/docs](https://nextjs.org/docs)
+- **Documentação React**: [react.dev](https://react.dev)
+- **Documentação Tailwind CSS**: [tailwindcss.com/docs](https://tailwindcss.com/docs)
+
+---
+
+## 📝 Notas Adicionais
+
+### Variáveis de Ambiente
+
+O projeto atualmente não utiliza variáveis de ambiente, mas você pode adicionar um arquivo `.env.local` se necessário:
+
+```env
+NEXT_PUBLIC_GA_ID=G-7CQYL0VX5Q
+NEXT_PUBLIC_SITE_URL=https://violaopuroesimples.com.br
+```
+
+### Performance
+
+O projeto está otimizado para performance com:
+- **Image Optimization**: Next.js otimiza imagens automaticamente
+- **Code Splitting**: Código dividido automaticamente por rota
+- **Static Generation**: Páginas estáticas quando possível
+- **Standalone Output**: Build otimizado para Docker
+
+### SEO
+
+O projeto inclui:
+- Metadados completos (title, description, keywords)
+- Open Graph tags para redes sociais
+- Twitter Cards
+- Schema.org markup (Course schema)
+- Sitemap.xml automático
+- Robots.txt configurado
+
+---
+
+**Desenvolvido com ❤️ para transformar vidas através da música**
+

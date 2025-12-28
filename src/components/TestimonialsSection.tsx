@@ -5,9 +5,9 @@ import { CustomVideoPlayer } from './CustomVideoPlayer';
 
 export function TestimonialsSection() {
     const testimonials = [
-        { videoSrc: "/depoimento-3.mp4" },
-        { videoSrc: "/depoimento-2.mp4" },
-        { videoSrc: "/depoimento-1.mp4" }
+        { videoSrc: "/videos/depoimento-3.mp4" },
+        { videoSrc: "/videos/depoimento-2.mp4" },
+        { videoSrc: "/videos/depoimento-1.mp4" }
     ];
 
   return (

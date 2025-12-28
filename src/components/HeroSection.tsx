@@ -25,7 +25,7 @@ export function HeroSection() {
             <CustomVideoPlayer
               // REMOVIDO: ref={videoRef}
               // REMOVIDO: startMuted={true}
-              src="/video-de-vendas-violao-puro-e-simples.mp4"
+              src="/videos/video-de-vendas-violao-puro-e-simples.mp4"
               poster="/violao-puro-e-simples-banner.png"
               aspectRatio="horizontal"
               showInitialPlayIcon={true} // ADICIONADO: Agora o ícone de play sempre aparece no início

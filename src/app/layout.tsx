@@ -52,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         {/*
           O SCRIPT DE DADOS ESTRUTURADOS (SCHEMA) VAI AQUI.
           Ele ajuda o Google a entender o conteúdo da sua página.
@@ -79,7 +79,7 @@ export default function RootLayout({
         />
         
         {/* O conteúdo da sua página é renderizado abaixo do script */}
-        <div className={inter.className}>{children}</div>
+        {children}
         
         {/* Componente do Google Analytics é chamado aqui */}
         <GoogleAnalytics />

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  violao-puro-e-simples:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: violao-puro-e-simples
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    # Descomente as linhas abaixo se você tiver um arquivo .env
+    # env_file:
+    #   - .env
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - violao-network
+
+networks:
+  violao-network:
+    driver: bridge

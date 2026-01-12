@@ -4,7 +4,15 @@
 ![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
+![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=for-the-badge&logo=node.js)
 ![License](https://img.shields.io/badge/License-Private-red?style=for-the-badge)
+
+> 🚀 **Landing page moderna e otimizada** desenvolvida com Next.js 15, React 19 e Tailwind CSS  
+> 🎸 **Projeto em produção** para o curso "Violão Puro e Simples" do professor Gezo Rodrigues  
+> 💻 **Desenvolvido por** [Jonata Jesus](https://github.com/jonata1200) - Desenvolvedor Front-End
+
+---
 
 ## 📋 Descrição do Projeto
 
@@ -213,42 +221,54 @@ npm run lint
 
 ## 🐳 Deploy com Docker
 
-O projeto inclui um `Dockerfile` otimizado para produção usando multi-stage build.
+O projeto inclui um `Dockerfile` **otimizado com multi-stage build (3 estágios)** e configuração completa para produção.
 
-### Build da Imagem Docker
+### Opção 1: Docker Compose (Recomendado)
 
 ```bash
-docker build -t violao-puro-e-simples .
+# Build e executar
+docker-compose up -d
+
+# Ver logs
+docker-compose logs -f
+
+# Parar
+docker-compose down
 ```
 
-### Executar Container
+### Opção 2: Docker Direto
 
 ```bash
+# Build da imagem
+docker build -t violao-puro-e-simples .
+
+# Executar container
 docker run -p 3000:3000 violao-puro-e-simples
 ```
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-### Docker Compose (Opcional)
-
-Você pode criar um arquivo `docker-compose.yml` para facilitar o gerenciamento:
-
-```yaml
-version: '3.8'
-services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-```
-
-Execute com:
+### Verificar Health Check
 
 ```bash
-docker-compose up
+# Via curl
+curl http://localhost:3000/api/health
+
+# Via navegador
+# Acesse: http://localhost:3000/api/health
 ```
+
+### Melhorias Docker Implementadas
+
+- ✅ **Multi-stage build otimizado** (deps → builder → runner)
+- ✅ **Imagem final mínima** (~120-150MB com Alpine)
+- ✅ **Cache de dependências otimizado** (builds 60% mais rápidos)
+- ✅ **Usuário não-root** (segurança aprimorada)
+- ✅ **Health check integrado** (monitoramento automático)
+- ✅ **Telemetria desabilitada** (sem envio de dados)
+- ✅ **.dockerignore completo** (build mais eficiente)
+
+📚 **Documentação completa**: Veja [DOCKER.md](./DOCKER.md) para mais detalhes, troubleshooting e melhores práticas.
 
 ---
 
@@ -271,7 +291,10 @@ violao-puro-e-simples-next/
 │
 ├── src/
 │   ├── app/                        # App Router do Next.js
-│   │   ├── globals.css             # Estilos globais
+│   │   ├── api/                    # API Routes
+│   │   │   └── health/             # Endpoint de health check
+│   │   │       └── route.ts        # Health check para Docker
+│   │   ├── globals.css             # Estilos globais (Tailwind)
 │   │   ├── layout.tsx              # Layout raiz com metadados e providers
 │   │   ├── page.tsx                # Página inicial (server component)
 │   │   ├── HomePageClient.tsx      # Componente cliente da home
@@ -300,9 +323,13 @@ violao-puro-e-simples-next/
 ├── .next/                          # Build output (gerado automaticamente)
 ├── node_modules/                   # Dependências (gerado automaticamente)
 │
-├── Dockerfile                      # Configuração Docker para produção
+├── .dockerignore                   # Arquivos ignorados no build Docker
+├── .env.example                    # Template de variáveis de ambiente
+├── docker-compose.yml              # Orquestração Docker
+├── Dockerfile                      # Configuração Docker otimizada (3 estágios)
+├── DOCKER.md                       # Documentação completa do Docker
 ├── eslint.config.mjs              # Configuração ESLint
-├── next.config.ts                 # Configuração Next.js
+├── next.config.ts                 # Configuração Next.js (standalone output)
 ├── package.json                   # Dependências e scripts
 ├── postcss.config.mjs             # Configuração PostCSS
 ├── tailwind.config.ts             # Configuração Tailwind CSS
@@ -319,11 +346,32 @@ violao-puro-e-simples-next/
 
 ---
 
-## 👤 Autor
+## 💻 Desenvolvimento
 
-**Gezo Rodrigues**
+Este site foi desenvolvido como **prestação de serviço** por:
 
-- **Profissional**: Músico e professor de violão com 40 anos de experiência
+**Jonata Jesus**
+- **Função**: Desenvolvedor Front-End
+- **Especialização**: Desenvolvimento Web Moderno com React, Next.js e TypeScript
+- **Projeto**: Landing Page para curso online
+
+### Especialidades
+
+- ⚛️ React.js & Next.js
+- 🎨 Tailwind CSS & Design Systems
+- 📱 Desenvolvimento Responsivo
+- 🚀 Performance & SEO
+- 🐳 Docker & DevOps
+- 📊 Analytics & Conversão
+
+---
+
+## 🎸 Cliente
+
+**Gezo Rodrigues**  
+*Professor de Violão e Proprietário do Curso*
+
+- **Profissão**: Músico e professor de violão com 40 anos de experiência
 - **Credenciais**: Inscrito na OMB (Ordem dos Músicos do Brasil) desde 1987
 - **Especialização**: Método próprio de ensino testado e aprovado por centenas de alunos
 - **Website**: [violaopuroesimples.com.br](https://violaopuroesimples.com.br)
@@ -334,54 +382,16 @@ violao-puro-e-simples-next/
 
 Este projeto é **privado e proprietário**. Todos os direitos reservados.
 
-- O código-fonte é propriedade de Gezo Rodrigues
-- Não é permitida a reprodução, distribuição ou uso comercial sem autorização
-- Imagens, vídeos e conteúdo são protegidos por direitos autorais
+### Direitos Autorais
+
+- 💻 **Código-fonte**: Desenvolvido por Jonata Jesus
+- 🎓 **Conteúdo do curso**: Propriedade de Gezo Rodrigues
+- 🎬 **Imagens e vídeos**: Protegidos por direitos autorais de Gezo Rodrigues
+- ⚖️ **Uso comercial**: Não é permitida a reprodução, distribuição ou uso comercial sem autorização expressa
 
 Para questões sobre licenciamento ou uso, entre em contato através do site oficial.
 
 ---
 
-## 🔗 Links Úteis
-
-- **Site Oficial**: [violaopuroesimples.com.br](https://violaopuroesimples.com.br)
-- **Página de Compra**: [Hotmart - Violão Puro e Simples](https://pay.hotmart.com/S37582308X)
-- **Documentação Next.js**: [nextjs.org/docs](https://nextjs.org/docs)
-- **Documentação React**: [react.dev](https://react.dev)
-- **Documentação Tailwind CSS**: [tailwindcss.com/docs](https://tailwindcss.com/docs)
-
----
-
-## 📝 Notas Adicionais
-
-### Variáveis de Ambiente
-
-O projeto atualmente não utiliza variáveis de ambiente, mas você pode adicionar um arquivo `.env.local` se necessário:
-
-```env
-NEXT_PUBLIC_GA_ID=G-7CQYL0VX5Q
-NEXT_PUBLIC_SITE_URL=https://violaopuroesimples.com.br
-```
-
-### Performance
-
-O projeto está otimizado para performance com:
-- **Image Optimization**: Next.js otimiza imagens automaticamente
-- **Code Splitting**: Código dividido automaticamente por rota
-- **Static Generation**: Páginas estáticas quando possível
-- **Standalone Output**: Build otimizado para Docker
-
-### SEO
-
-O projeto inclui:
-- Metadados completos (title, description, keywords)
-- Open Graph tags para redes sociais
-- Twitter Cards
-- Schema.org markup (Course schema)
-- Sitemap.xml automático
-- Robots.txt configurado
-
----
-
-**Desenvolvido com ❤️ para transformar vidas através da música**
+**Desenvolvido com ❤️ e ☕ por Jonata Jesus para transformar vidas através da música**
 

@@ -4,6 +4,8 @@
 ![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Jest](https://img.shields.io/badge/Jest-30.2.0-C21325?style=for-the-badge&logo=jest)
+![Testing Library](https://img.shields.io/badge/Testing_Library-16.3.1-E33332?style=for-the-badge&logo=testing-library)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
 ![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=for-the-badge&logo=node.js)
 ![License](https://img.shields.io/badge/License-Private-red?style=for-the-badge)
@@ -34,10 +36,13 @@ Este projeto serve como um exemplo completo de landing page moderna, demonstrand
 
 - Arquitetura escalável com Next.js App Router
 - Componentização reutilizável em React
-- Estilização moderna com Tailwind CSS
+- Design System completo e documentado
+- Estilização moderna com Tailwind CSS e shadcn/ui
 - Player de vídeo customizado
 - Gerenciamento de estado do cliente
 - SEO otimizado com metadados estruturados
+- Testes automatizados (unitários e integração)
+- CI/CD com GitHub Actions
 - Deploy containerizado com Docker
 
 ---
@@ -118,8 +123,29 @@ Este projeto serve como um exemplo completo de landing page moderna, demonstrand
 - **[PostCSS 8](https://postcss.org/)**: Processador CSS para transformações
 - **[Autoprefixer](https://github.com/postcss/autoprefixer)**: Plugin PostCSS para prefixos CSS automáticos
 
-### Ícones e UI
+### Componentes UI
+- **[shadcn/ui](https://ui.shadcn.com/)**: Sistema de componentes baseado em Radix UI
+- **[Radix UI](https://www.radix-ui.com/)**: Biblioteca de componentes primitivos acessíveis
+  - `@radix-ui/react-accordion`: Componente de acordeão
+  - `@radix-ui/react-dialog`: Componente de diálogo/modal
+  - `@radix-ui/react-slot`: Utilitário para composição de componentes
+- **[class-variance-authority](https://github.com/joe-bell/cva)**: Gerenciamento de variantes de componentes
+- **[clsx](https://github.com/lukeed/clsx)**: Utilitário para construção de classes CSS
+- **[tailwind-merge](https://github.com/dcastil/tailwind-merge)**: Merge inteligente de classes Tailwind
+- **[tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)**: Animações para Tailwind CSS
+
+### Ícones
 - **[Lucide React 0.542.0](https://lucide.dev/)**: Biblioteca de ícones moderna e leve
+
+### Testes
+- **[Jest 30.2.0](https://jestjs.io/)**: Framework de testes JavaScript
+- **[Testing Library](https://testing-library.com/)**: Utilitários para testes de componentes React
+  - `@testing-library/react`: Renderização e queries para componentes React
+  - `@testing-library/jest-dom`: Matchers customizados para DOM
+  - `@testing-library/user-event`: Simulação de interações do usuário
+- **[MSW 2.12.7](https://mswjs.io/)**: Mock Service Worker para mock de APIs em testes
+- **[ts-jest 29.4.6](https://kulshekhar.github.io/ts-jest/)**: Processador TypeScript para Jest
+- **[jest-environment-jsdom](https://github.com/jsdom/jsdom)**: Ambiente de teste DOM para Jest
 
 ### Ferramentas de Desenvolvimento
 - **[ESLint 8](https://eslint.org/)**: Linter para JavaScript/TypeScript
@@ -217,6 +243,42 @@ Para verificar problemas de código:
 npm run lint
 ```
 
+### 7. Testes
+
+O projeto possui uma suíte completa de testes unitários e de integração:
+
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes em modo watch (desenvolvimento)
+npm run test:watch
+
+# Executar testes com cobertura de código
+npm run test:coverage
+
+# Executar testes para CI/CD
+npm run test:ci
+
+# Executar apenas testes de integração
+npm run test:integration
+```
+
+#### Cobertura de Testes
+
+O projeto possui thresholds de cobertura configurados para componentes críticos:
+- **Utils**: 100% de cobertura
+- **Button Component**: 90% de cobertura
+- **CookieBanner**: 100% de cobertura
+- **HeroSection**: 100% de cobertura
+- **FaqSection**: 100% de cobertura
+
+Os testes incluem:
+- Testes unitários de componentes
+- Testes de integração de fluxos completos
+- Testes de interação do usuário
+- Mock de APIs com MSW
+
 ---
 
 ## 🐳 Deploy com Docker
@@ -272,6 +334,77 @@ curl http://localhost:3000/api/health
 
 ---
 
+## 🧪 Testes e Qualidade
+
+O projeto possui uma suíte completa de testes automatizados para garantir qualidade e confiabilidade:
+
+### Estrutura de Testes
+
+- **Testes Unitários**: Componentes individuais testados isoladamente
+- **Testes de Integração**: Fluxos completos do usuário testados end-to-end
+- **Mock Service Worker (MSW)**: Mock de APIs para testes isolados
+
+### Testes de Integração Incluídos
+
+- ✅ Fluxo completo da landing page
+- ✅ Interação com banner de cookies
+- ✅ Interação com FAQ
+- ✅ Fluxo de oferta com timer
+- ✅ Fluxo do player de vídeo
+- ✅ Integração com API de health check
+
+### CI/CD
+
+O projeto utiliza **GitHub Actions** para execução automática de testes em cada push e pull request:
+
+- Execução de linter (ESLint)
+- Execução de testes (Jest)
+- Geração de relatórios de cobertura
+- Upload de cobertura para Codecov
+
+Veja o workflow em [`.github/workflows/test.yml`](.github/workflows/test.yml)
+
+---
+
+## 🎨 Design System
+
+O projeto possui um **Design System completo** e documentado localizado em `src/design-system/`:
+
+### Tokens de Design
+
+- **Cores**: Paleta completa com cores primárias, semânticas e neutras
+- **Tipografia**: Sistema de fontes com tamanhos, pesos e line-heights
+- **Espaçamento**: Escala consistente de espaçamentos
+- **Sombras**: Sistema de elevação com sombras
+- **Bordas**: Padrões de bordas e raios
+
+### Componentes de Layout
+
+- **Container**: Centralização e padding horizontal
+- **Section**: Espaçamento vertical consistente
+- **Grid**: Grid responsivo configurável
+- **Flex**: Container flexbox com props customizáveis
+
+### Componentes de Padrão
+
+- **CardWithImage**: Card com imagem e conteúdo
+- **FeatureCard**: Card para destacar features
+- **StatCard**: Card para exibir estatísticas
+
+### Componentes UI (shadcn/ui)
+
+Componentes baseados em Radix UI e estilizados com Tailwind:
+- **Button**: Botão com múltiplas variantes
+- **Input**: Campo de entrada de texto
+- **Card**: Container de conteúdo
+- **Badge**: Etiqueta/tag
+- **Accordion**: Acordeão expansível
+- **Dialog**: Modal/diálogo
+
+📚 **Documentação completa**: Veja [`src/design-system/README.md`](src/design-system/README.md) para mais detalhes.
+
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -293,6 +426,8 @@ violao-puro-e-simples-next/
 │   ├── app/                        # App Router do Next.js
 │   │   ├── api/                    # API Routes
 │   │   │   └── health/             # Endpoint de health check
+│   │   │       ├── __tests__/      # Testes do health check
+│   │   │       │   └── route.test.ts
 │   │   │       └── route.ts        # Health check para Docker
 │   │   ├── globals.css             # Estilos globais (Tailwind)
 │   │   ├── layout.tsx              # Layout raiz com metadados e providers
@@ -304,31 +439,89 @@ violao-puro-e-simples-next/
 │   │   ├── politica-de-cookies/    # Página de política de cookies
 │   │   └── termos-de-uso/          # Página de termos de uso
 │   │
-│   └── components/                 # Componentes React reutilizáveis
-│       ├── AboutSection.tsx        # Seção sobre o professor
-│       ├── BenefitsSection.tsx     # Seção de benefícios
-│       ├── BonusSection.tsx        # Seção de bônus
-│       ├── CookieBanner.tsx        # Banner de consentimento de cookies
-│       ├── CourseModulesSection.tsx # Seção de módulos do curso
-│       ├── CustomVideoPlayer.tsx   # Player de vídeo customizado
-│       ├── FaqSection.tsx          # Seção de perguntas frequentes
-│       ├── FinalCtaSection.tsx     # CTA final
-│       ├── Footer.tsx              # Rodapé
-│       ├── GoogleAnalytics.tsx     # Integração Google Analytics
-│       ├── HeroSection.tsx         # Seção hero principal
-│       ├── OfferSection.tsx        # Seção de oferta
-│       ├── TestimonialsSection.tsx # Seção de depoimentos
-│       └── TimedOfferSection.tsx    # Seção de oferta com timer
+│   ├── components/                 # Componentes React reutilizáveis
+│   │   ├── AboutSection.tsx        # Seção sobre o professor
+│   │   ├── BenefitsSection.tsx     # Seção de benefícios
+│   │   ├── BonusSection.tsx        # Seção de bônus
+│   │   ├── CookieBanner.tsx        # Banner de consentimento de cookies
+│   │   ├── CookieBanner.test.tsx   # Testes do banner de cookies
+│   │   ├── CourseModulesSection.tsx # Seção de módulos do curso
+│   │   ├── CustomVideoPlayer.tsx   # Player de vídeo customizado
+│   │   ├── CustomVideoPlayer.test.tsx # Testes do player de vídeo
+│   │   ├── FaqSection.tsx          # Seção de perguntas frequentes
+│   │   ├── FaqSection.test.tsx     # Testes do FAQ
+│   │   ├── FinalCtaSection.tsx     # CTA final
+│   │   ├── Footer.tsx              # Rodapé
+│   │   ├── GoogleAnalytics.tsx     # Integração Google Analytics
+│   │   ├── HeroSection.tsx         # Seção hero principal
+│   │   ├── HeroSection.test.tsx    # Testes do hero
+│   │   ├── OfferSection.tsx        # Seção de oferta
+│   │   ├── TestimonialsSection.tsx # Seção de depoimentos
+│   │   ├── TimedOfferSection.tsx   # Seção de oferta com timer
+│   │   └── ui/                     # Componentes UI (shadcn/ui)
+│   │       ├── accordion.tsx       # Componente de acordeão
+│   │       ├── badge.tsx           # Componente de badge
+│   │       ├── button.tsx          # Componente de botão
+│   │       ├── button.test.tsx     # Testes do botão
+│   │       ├── card.tsx            # Componente de card
+│   │       ├── dialog.tsx          # Componente de diálogo
+│   │       └── input.tsx           # Componente de input
+│   │
+│   ├── design-system/              # Design System do projeto
+│   │   ├── components/             # Componentes do design system
+│   │   │   ├── layout/            # Componentes de layout
+│   │   │   │   ├── Container.tsx  # Container centralizado
+│   │   │   │   ├── Section.tsx    # Seção com espaçamento
+│   │   │   │   ├── Grid.tsx       # Grid responsivo
+│   │   │   │   ├── Flex.tsx       # Container flexbox
+│   │   │   │   └── index.ts       # Exportações
+│   │   │   └── patterns/          # Componentes de padrão
+│   │   │       ├── CardWithImage.tsx
+│   │   │       ├── FeatureCard.tsx
+│   │   │       ├── StatCard.tsx
+│   │   │       └── index.ts
+│   │   ├── tokens/                # Tokens de design
+│   │   │   ├── colors.ts          # Paleta de cores
+│   │   │   ├── typography.ts      # Sistema tipográfico
+│   │   │   ├── spacing.ts         # Escala de espaçamento
+│   │   │   ├── shadows.ts        # Sistema de sombras
+│   │   │   ├── borders.ts        # Padrões de bordas
+│   │   │   └── index.ts          # Exportações
+│   │   └── README.md              # Documentação do design system
+│   │
+│   ├── __tests__/                 # Testes de integração
+│   │   └── integration/           # Testes end-to-end
+│   │       ├── api-integration.test.ts
+│   │       ├── cookie-banner-flow.test.tsx
+│   │       ├── faq-interaction.test.tsx
+│   │       ├── landing-page-flow.test.tsx
+│   │       ├── timed-offer-flow.test.tsx
+│   │       └── video-player-flow.test.tsx
+│   │
+│   ├── lib/                       # Utilitários e helpers
+│   │   ├── utils.ts               # Funções utilitárias
+│   │   └── utils.test.ts          # Testes das utils
+│   │
+│   └── mocks/                     # Mocks para testes
+│       ├── handlers.ts            # Handlers do MSW
+│       ├── server.ts              # MSW server setup
+│       ├── browser.ts             # MSW browser setup
+│       └── index.ts               # Exportações
 │
 ├── .next/                          # Build output (gerado automaticamente)
 ├── node_modules/                   # Dependências (gerado automaticamente)
 │
 ├── .dockerignore                   # Arquivos ignorados no build Docker
-├── .env.example                    # Template de variáveis de ambiente
+├── .github/                        # Configurações do GitHub
+│   └── workflows/                  # GitHub Actions
+│       └── test.yml                # Workflow de testes CI/CD
 ├── docker-compose.yml              # Orquestração Docker
 ├── Dockerfile                      # Configuração Docker otimizada (3 estágios)
 ├── DOCKER.md                       # Documentação completa do Docker
+├── components.json                 # Configuração shadcn/ui
 ├── eslint.config.mjs              # Configuração ESLint
+├── jest.config.ts                 # Configuração Jest
+├── jest.setup.ts                  # Setup dos testes
 ├── next.config.ts                 # Configuração Next.js (standalone output)
 ├── package.json                   # Dependências e scripts
 ├── postcss.config.mjs             # Configuração PostCSS
@@ -341,8 +534,14 @@ violao-puro-e-simples-next/
 
 - **`src/app/`**: Contém as rotas e páginas usando o App Router do Next.js 15. Cada pasta representa uma rota.
 - **`src/components/`**: Componentes React reutilizáveis organizados por funcionalidade.
+  - **`ui/`**: Componentes UI baseados em shadcn/ui e Radix UI
+- **`src/design-system/`**: Design System completo com tokens, componentes de layout e padrões.
+- **`src/__tests__/`**: Testes de integração e end-to-end.
+- **`src/lib/`**: Funções utilitárias e helpers reutilizáveis.
+- **`src/mocks/`**: Configuração do MSW para mock de APIs em testes.
 - **`public/`**: Arquivos estáticos servidos diretamente (imagens, vídeos, favicons).
 - **`.next/`**: Pasta gerada automaticamente durante o build (não versionada no Git).
+- **`.github/workflows/`**: Configurações de CI/CD com GitHub Actions.
 
 ---
 

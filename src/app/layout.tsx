@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   description: 'Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.',
   keywords: 'curso de violão, aprender violão, violão para iniciantes, violão do zero, música cristã, gezo rodrigues, violão online, aula de violão',
   robots: 'index, follow',
-  
+
   // --- NOVA SEÇÃO AQUI ---
   alternates: {
     canonical: '/',
   },
-  
+
   openGraph: {
     title: 'Violão Puro e Simples | O Curso Completo',
     description: 'Transforme-se em um violonista completo em Pouco Tempo com um método testado por mais de 40 anos.',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     type: 'website',
   },
-  
+
   // --- NOVA SEÇÃO PARA O TWITTER ---
   twitter: {
     card: 'summary_large_image',
@@ -60,27 +60,29 @@ export default function RootLayout({
         */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Course",
-            "name": "Violão Puro e Simples",
-            "description": "Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.",
-            "provider": {
-              "@type": "Person",
-              "name": "Gezo Rodrigues"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              // TODO: Atualizar este número manualmente se os depoimentos mudarem.
-              "reviewCount": "3" // Atualmente existem 3 vídeos de depoimento.
-            }
-          }) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Course",
+              "name": "Violão Puro e Simples",
+              "description": "Aprenda a tocar violão do zero com o método de Gezo Rodrigues. Domine acordes, batidas e solos em Pouco Tempo com foco em música cristã e popular.",
+              "provider": {
+                "@type": "Person",
+                "name": "Gezo Rodrigues"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                // TODO: Atualizar este número manualmente se os depoimentos mudarem.
+                "reviewCount": "3" // Atualmente existem 3 vídeos de depoimento.
+              }
+            })
+          }}
         />
-        
+
         {/* O conteúdo da sua página é renderizado abaixo do script */}
         {children}
-        
+
         {/* Componente do Google Analytics é chamado aqui */}
         <GoogleAnalytics />
         <CookieBanner />

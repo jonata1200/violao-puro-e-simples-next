@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Container, Flex } from '@/design-system/components/layout';
 
 export function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -26,21 +27,23 @@ export function CookieBanner() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-orange-500/30 p-4 z-50">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-gray-300">
-          Este site utiliza cookies para garantir que você obtenha a melhor experiência. Ao continuar a navegar, você concorda com o uso de cookies. Saiba mais em nossa{' '}
-          <Link href="/politica-de-privacidade" className="text-orange-400 hover:underline font-semibold">
-            Política de Privacidade
-          </Link>.
-        </p>
-        <button
-          onClick={handleAccept}
-          className="bg-orange-500 text-black font-bold px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors flex-shrink-0"
-        >
-          Aceitar e Fechar
-        </button>
-      </div>
+    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-primary-500/30 p-4 z-50">
+      <Container>
+        <Flex direction="col" justify="between" align="center" className="md:flex-row gap-4">
+          <p className="text-sm text-gray-300">
+            Este site utiliza cookies para garantir que você obtenha a melhor experiência. Ao continuar a navegar, você concorda com o uso de cookies. Saiba mais em nossa{' '}
+            <Link href="/politica-de-privacidade" className="text-primary-400 hover:underline font-semibold">
+              Política de Privacidade
+            </Link>.
+          </p>
+          <button
+            onClick={handleAccept}
+            className="bg-primary-500 text-black font-bold px-6 py-2 rounded-lg hover:bg-primary-600 transition-colors flex-shrink-0"
+          >
+            Aceitar e Fechar
+          </button>
+        </Flex>
+      </Container>
     </div>
   );
 }

@@ -115,7 +115,7 @@ export const CustomVideoPlayer = forwardRef<HTMLVideoElement, CustomVideoPlayerP
                   {!isPlaying && (
                       <button
                           onClick={togglePlayPause}
-                          className="p-3 bg-orange-500/70 rounded-full text-white hover:bg-orange-500 transition-all transform hover:scale-110 pointer-events-auto"
+                          className="p-3 bg-primary-500/70 rounded-full text-white hover:bg-primary-500 transition-all transform hover:scale-110 pointer-events-auto"
                           aria-label="Reproduzir vídeo"
                       >
                           <Play size={aspectRatio === 'vertical' ? 36 : 48} fill="white" />
@@ -133,7 +133,7 @@ export const CustomVideoPlayer = forwardRef<HTMLVideoElement, CustomVideoPlayerP
                         video.currentTime = pos * video.duration;
                     }
                 }}>
-                  <div className="bg-orange-500 h-1.5 rounded-full" style={{ width: `${progress}%` }}></div>
+                  <div className="bg-primary-500 h-1.5 rounded-full" style={{ width: `${progress}%` }}></div>
                 </div>
                 <div className="flex items-center justify-between text-white">
                   <div className="flex items-center gap-2 sm:gap-4">
@@ -151,7 +151,7 @@ export const CustomVideoPlayer = forwardRef<HTMLVideoElement, CustomVideoPlayerP
                               step="0.05" 
                               value={volume}
                               onChange={handleVolumeChange}
-                              className="w-0 opacity-0 pointer-events-none group-hover/volume:w-16 sm:group-hover/volume:w-24 group-hover/volume:opacity-100 group-hover/volume:pointer-events-auto h-1 ml-2 transition-all duration-300 accent-orange-500"
+                              className="w-0 opacity-0 pointer-events-none group-hover/volume:w-16 sm:group-hover/volume:w-24 group-hover/volume:opacity-100 group-hover/volume:pointer-events-auto h-1 ml-2 transition-all duration-300 accent-primary-500"
                           />
                       </div>
                   </div>

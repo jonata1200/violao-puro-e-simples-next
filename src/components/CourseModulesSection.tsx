@@ -1,3 +1,5 @@
+import { Section, Container, Grid } from '@/design-system/components/layout';
+
 export function CourseModulesSection() {
     const modules = [
         { 
@@ -129,32 +131,32 @@ export function CourseModulesSection() {
       ];
 
   return (
-    <section id="curso" className="py-20 bg-black relative">
-      <div className="container mx-auto px-4">
+    <Section id="curso" className="bg-black relative">
+      <Container className="max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            O Que Você Vai <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Dominar</span>
+            O Que Você Vai <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Dominar</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Módulos completos do curso e o que será abordado em cada um
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <Grid cols={1} colsLg={2} gap={8}>
           {modules.map((item, index) => (
             <div key={index} className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-orange-500/50 p-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary-500/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-primary-500/50 p-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                     <span className="text-white font-bold text-xl">{item.number}</span>
                   </div>
-                  <h3 className="text-lg font-bold group-hover:text-orange-500 transition-colors flex-1">{item.title}</h3>
+                  <h3 className="text-lg font-bold group-hover:text-primary-500 transition-colors flex-1">{item.title}</h3>
                 </div>
                 <ul className="text-gray-400 leading-relaxed space-y-2 text-sm">
                   {item.desc.map((descItem, descIndex) => (
                     <li key={descIndex} className="flex items-start space-x-2">
-                      <span className="text-orange-500 text-xs mt-1">•</span>
+                      <span className="text-primary-500 text-xs mt-1">•</span>
                       <span>{descItem}</span>
                     </li>
                   ))}
@@ -162,8 +164,8 @@ export function CourseModulesSection() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Section>
   );
 }

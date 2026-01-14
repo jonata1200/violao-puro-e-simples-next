@@ -1,4 +1,6 @@
 import { Volume2, Heart, Award, Guitar } from 'lucide-react';
+import { Section, Container, Grid } from '@/design-system/components/layout';
+import { FeatureCard } from '@/design-system/components/patterns';
 
 export function BenefitsSection() {
     const benefits = [
@@ -24,34 +26,34 @@ export function BenefitsSection() {
           icon: Award,
           title: "Independência Musical",
           desc: "Torne-se um violonista completo e independente, capaz de tocar, improvisar e ensinar outros.",
-          gradient: "from-orange-500/20 to-orange-600/20"
+          gradient: "from-primary-500/20 to-primary-600/20"
         }
       ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-4">
+    <Section className="bg-gradient-to-b from-gray-900 to-black">
+      <Container>
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Por Que Este Curso é <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Diferente</span>
+            Por Que Este Curso é <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Diferente</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <Grid cols={1} colsMd={2} colsLg={4} gap={8} className="max-w-7xl mx-auto">
           {benefits.map((benefit, index) => (
             <div key={index} className="group relative">
               <div className={`absolute -inset-4 bg-gradient-to-br ${benefit.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-              <div className="relative text-center p-10 bg-gray-900/50 backdrop-blur-sm rounded-3xl border border-gray-800 hover:border-orange-500/30 transition-all duration-300 transform hover:-translate-y-4 h-full">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-6 group-hover:text-orange-500 transition-colors">{benefit.title}</h3>
-                <p className="text-gray-300 leading-relaxed text-lg">{benefit.desc}</p>
-              </div>
+              <FeatureCard
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.desc}
+                variant="gradient"
+                className="relative"
+              />
             </div>
           ))}
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Section>
   );
 }

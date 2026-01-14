@@ -1,4 +1,5 @@
 import { ChevronDown } from 'lucide-react';
+import { Section, Container } from '@/design-system/components/layout';
 
 interface FaqSectionProps {
   openFaq: number | null;
@@ -16,24 +17,24 @@ export function FaqSection({ openFaq, toggleFaq }: FaqSectionProps) {
     ];
 
   return (
-    <section id="faq" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+    <Section id="faq" className="bg-gray-900">
+      <Container>
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Frequentes</span>
+            Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Frequentes</span>
           </h2>
           <p className="text-xl text-gray-400">Tire todas as suas dúvidas sobre o curso</p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-black/50 backdrop-blur-sm border border-gray-800 hover:border-orange-500/30 rounded-2xl transition-all duration-300">
+            <div key={index} className="bg-black/50 backdrop-blur-sm border border-gray-800 hover:border-primary-500/30 rounded-2xl transition-all duration-300">
               <button
                 onClick={() => toggleFaq(index)}
                 className="w-full text-left p-6 flex items-center justify-between focus:outline-none"
               >
-                <h3 className="text-xl font-bold text-orange-500 pr-4">{faq.q}</h3>
-                <ChevronDown className={`w-6 h-6 text-orange-500 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                <h3 className="text-xl font-bold text-primary-500 pr-4">{faq.q}</h3>
+                <ChevronDown className={`w-6 h-6 text-primary-500 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
               </button>
               {openFaq === index && (
                 <div className="px-6 pb-6">
@@ -43,7 +44,7 @@ export function FaqSection({ openFaq, toggleFaq }: FaqSectionProps) {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

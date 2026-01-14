@@ -91,7 +91,9 @@ describe('Timed Offer Flow', () => {
     render(<TimedOfferSection timeLeft={timeLeft} />)
     
     // Verificar que ainda mostra o timer mesmo com zero
-    expect(screen.getByText(/00/)).toBeInTheDocument()
+    // Usar getAllByText pois há 3 elementos com "00" (horas, minutos, segundos)
+    const zeroElements = screen.getAllByText(/00/)
+    expect(zeroElements.length).toBeGreaterThanOrEqual(3)
     expect(screen.getByText(/oferta expira em:/i)).toBeInTheDocument()
   })
 

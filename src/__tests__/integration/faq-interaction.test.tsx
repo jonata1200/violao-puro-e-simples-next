@@ -32,8 +32,14 @@ describe('FAQ Interaction Flow', () => {
   it('should not show answers when FAQ is closed', () => {
     render(<FaqSection openFaq={null} toggleFaq={mockToggleFaq} />)
     
-    // Resposta da primeira pergunta não deve estar visível
-    expect(screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)).not.toBeVisible()
+    // Resposta da primeira pergunta não deve estar visível ou no DOM
+    const resposta = screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)
+    if (resposta) {
+      expect(resposta).not.toBeVisible()
+    } else {
+      // Se não está no DOM, também está correto
+      expect(resposta).toBeNull()
+    }
   })
 
   it('should expand FAQ item when clicked', async () => {
@@ -45,7 +51,10 @@ describe('FAQ Interaction Flow', () => {
     expect(firstQuestion).toBeInTheDocument()
     
     // Resposta não deve estar visível inicialmente
-    expect(screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)).not.toBeVisible()
+    const respostaInicial = screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)
+    if (respostaInicial) {
+      expect(respostaInicial).not.toBeVisible()
+    }
     
     // Clicar para expandir
     await user.click(firstQuestion.closest('button')!)
@@ -79,7 +88,10 @@ describe('FAQ Interaction Flow', () => {
     
     // Resposta não deve estar visível
     await waitFor(() => {
-      expect(screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)).not.toBeVisible()
+      const resposta = screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)
+      if (resposta) {
+        expect(resposta).not.toBeVisible()
+      }
     })
   })
 
@@ -87,9 +99,13 @@ describe('FAQ Interaction Flow', () => {
     const user = userEvent.setup()
     
     let openFaq: number | null = null
+    const setOpenFaq = (value: number | null) => {
+      openFaq = value
+    }
+    
     const mockToggleFaq = jest.fn((index: number) => {
       // Simular lógica de toggle: se já está aberto, fecha; senão, abre
-      openFaq = openFaq === index ? null : index
+      setOpenFaq(openFaq === index ? null : index)
     })
     
     const { rerender } = render(<FaqSection openFaq={openFaq} toggleFaq={mockToggleFaq} />)
@@ -99,9 +115,9 @@ describe('FAQ Interaction Flow', () => {
     
     // Abrir primeira pergunta
     await user.click(question1.closest('button')!)
-    mockToggleFaq(0)
-    openFaq = 0
-    rerender(<FaqSection openFaq={openFaq} toggleFaq={mockToggleFaq} />)
+    // Simular o toggle
+    setOpenFaq(0)
+    rerender(<FaqSection openFaq={0} toggleFaq={mockToggleFaq} />)
     
     // Verificar que a primeira resposta está visível
     await waitFor(() => {
@@ -110,15 +126,24 @@ describe('FAQ Interaction Flow', () => {
     
     // Abrir segunda pergunta
     await user.click(question2.closest('button')!)
-    mockToggleFaq(1)
-    openFaq = 1
-    rerender(<FaqSection openFaq={openFaq} toggleFaq={mockToggleFaq} />)
+    // Simular o toggle - primeira fecha, segunda abre
+    setOpenFaq(1)
+    rerender(<FaqSection openFaq={1} toggleFaq={mockToggleFaq} />)
     
     // Primeira deve fechar, segunda deve abrir
+    // Aguardar que a primeira resposta desapareça
     await waitFor(() => {
-      expect(screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)).not.toBeVisible()
+      const primeiraResposta = screen.queryByText(/não! o curso foi desenvolvido para iniciantes completos/i)
+      // A resposta pode estar no DOM mas oculta, ou removida do DOM
+      if (primeiraResposta) {
+        expect(primeiraResposta).not.toBeVisible()
+      }
+    }, { timeout: 2000 })
+    
+    // Verificar que a segunda resposta está visível
+    await waitFor(() => {
       expect(screen.getByText(/com dedicação de 30 minutos por dia/i)).toBeVisible()
-    })
+    }, { timeout: 2000 })
   })
 
   it('should have accessible FAQ buttons', () => {

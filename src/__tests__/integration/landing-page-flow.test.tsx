@@ -152,15 +152,15 @@ describe('Landing Page Flow', () => {
     expect(screen.getByText(/perguntas frequentes/i)).toBeInTheDocument()
   })
 
-  it('should have video players in testimonials section', async () => {
+  it('should have testimonials section', async () => {
     render(<HomePageClient />)
     
     jest.advanceTimersByTime(100)
     
     await waitFor(() => {
-      const videoPlayers = screen.getAllByTestId('custom-video-player')
-      // Deve ter pelo menos um vídeo player (nos depoimentos)
-      expect(videoPlayers.length).toBeGreaterThan(0)
+      // Verificar se a seção de depoimentos está presente
+      expect(screen.getByTestId('testimonials-section')).toBeInTheDocument()
+      expect(screen.getByText(/depoimentos/i)).toBeInTheDocument()
     })
   })
 

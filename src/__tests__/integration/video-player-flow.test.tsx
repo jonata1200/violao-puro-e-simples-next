@@ -39,10 +39,14 @@ describe('Video Player Flow', () => {
     const video = document.querySelector('video')
     expect(video).toBeInTheDocument()
     
-    // Verificar se o botão de play está presente (pode ter diferentes nomes)
-    const playButton = screen.queryByRole('button', { name: /play/i }) || 
-                       screen.queryByRole('button', { name: /reproduzir/i })
-    expect(playButton).toBeInTheDocument()
+    // Verificar se o botão de play está presente (pode ter múltiplos botões)
+    // Usar getAllByRole e verificar que pelo menos um existe
+    const playButtons = screen.queryAllByRole('button', { name: /play/i })
+    const reproducirButtons = screen.queryAllByRole('button', { name: /reproduzir/i })
+    const reproducirVideoButtons = screen.queryAllByRole('button', { name: /reproduzir vídeo/i })
+    
+    const totalPlayButtons = playButtons.length + reproducirButtons.length + reproducirVideoButtons.length
+    expect(totalPlayButtons).toBeGreaterThan(0)
   })
 
   it('should play video when play button is clicked', async () => {
@@ -54,15 +58,23 @@ describe('Video Player Flow', () => {
       />
     )
     
-    const playButton = screen.queryByRole('button', { name: /play/i }) || 
-                       screen.queryByRole('button', { name: /reproduzir/i })
-    if (playButton) {
-      await user.click(playButton)
+    // Pegar o primeiro botão de play disponível (usar queryAllByRole para evitar erro de múltiplos elementos)
+    const reproducirVideoButtons = screen.queryAllByRole('button', { name: /reproduzir vídeo/i })
+    const reproducirButtons = screen.queryAllByRole('button', { name: /reproduzir/i })
+    const playButtons = screen.queryAllByRole('button', { name: /play/i })
+    
+    const buttonToClick = reproducirVideoButtons[0] || reproducirButtons[0] || playButtons[0]
+    
+    if (buttonToClick) {
+      await user.click(buttonToClick)
       
       // Aguardar um pouco para o play ser chamado
       await waitFor(() => {
         expect(mockPlay).toHaveBeenCalled()
       }, { timeout: 1000 })
+    } else {
+      // Se não encontrar botão, o teste deve falhar
+      throw new Error('Nenhum botão de play encontrado')
     }
   })
 
@@ -75,19 +87,23 @@ describe('Video Player Flow', () => {
       />
     )
     
-    // Iniciar reprodução
-    const playButton = screen.queryByRole('button', { name: /play/i }) || 
-                       screen.queryByRole('button', { name: /reproduzir/i })
-    if (playButton) {
-      await user.click(playButton)
+    // Iniciar reprodução - usar o primeiro botão disponível (usar queryAllByRole)
+    const reproducirVideoButtons = screen.queryAllByRole('button', { name: /reproduzir vídeo/i })
+    const reproducirButtons = screen.queryAllByRole('button', { name: /reproduzir/i })
+    const playButtons = screen.queryAllByRole('button', { name: /play/i })
+    
+    const buttonToClick = reproducirVideoButtons[0] || reproducirButtons[0] || playButtons[0]
+    
+    if (buttonToClick) {
+      await user.click(buttonToClick)
       
       // Aguardar controles aparecerem
       await waitFor(() => {
-        const pauseButton = screen.queryByRole('button', { name: /pause/i }) ||
-                           screen.queryByRole('button', { name: /pausar/i })
+        const pauseButtons = screen.queryAllByRole('button', { name: /pause/i })
+        const pausarButtons = screen.queryAllByRole('button', { name: /pausar/i })
         // O botão de pause pode aparecer após o play
-        if (pauseButton) {
-          expect(pauseButton).toBeInTheDocument()
+        if (pauseButtons.length > 0 || pausarButtons.length > 0) {
+          expect(pauseButtons.length + pausarButtons.length).toBeGreaterThan(0)
         }
       }, { timeout: 2000 })
     }
@@ -143,16 +159,20 @@ describe('Video Player Flow', () => {
       />
     )
     
-    const playButton = screen.queryByRole('button', { name: /play/i }) || 
-                       screen.queryByRole('button', { name: /reproduzir/i })
+    // Pegar o primeiro botão de play disponível (usar queryAllByRole para evitar erro de múltiplos elementos)
+    const reproducirVideoButtons = screen.queryAllByRole('button', { name: /reproduzir vídeo/i })
+    const reproducirButtons = screen.queryAllByRole('button', { name: /reproduzir/i })
+    const playButtons = screen.queryAllByRole('button', { name: /play/i })
     
-    if (playButton) {
+    const buttonToTest = reproducirVideoButtons[0] || reproducirButtons[0] || playButtons[0]
+    
+    if (buttonToTest) {
       // Verificar que o botão é focável
       await user.tab()
       // Pode não ter foco imediatamente, mas deve ser focável
       
       // Verificar que Enter ativa o botão
-      playButton.focus()
+      buttonToTest.focus()
       await user.keyboard('{Enter}')
       await waitFor(() => {
         expect(mockPlay).toHaveBeenCalled()

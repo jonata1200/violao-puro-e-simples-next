@@ -36,7 +36,7 @@ export function OfferSection() {
             </p>
           </div>
         
-        <Grid cols={1} colsLg={2} gap={16} className="items-center">
+        <Grid cols={1} colsLg={2} gap={8} className="items-center lg:!gap-10 xl:!gap-12">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-transparent rounded-3xl blur-xl"></div>
               <div className="relative bg-gray-900/80 backdrop-blur-sm border border-primary-500/30 rounded-3xl p-8">
@@ -72,21 +72,21 @@ export function OfferSection() {
             </div>
             
           <div className="space-y-8">
-              <div className="grid gap-6">
+              <div className="flex flex-col gap-6 md:gap-8">
                 {offerFeatures.map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-6 rounded-xl bg-black/50 border border-gray-800 hover:border-primary-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div key={index} className="flex items-start space-x-4 p-6 rounded-xl bg-black border-2 border-primary-500 hover:border-primary-500 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h4 className="font-bold text-lg mb-2 text-white">{item.title}</h4>
-                      <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                      <p className="text-white leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mt-8">
+              <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mt-6">
                 <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-sm sm:text-base md:text-lg px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
                   🎸 COMEÇAR MINHA JORNADA MUSICAL
                 </button>

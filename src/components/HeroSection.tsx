@@ -41,7 +41,7 @@ export function HeroSection() {
         </p>
 
         {/* Stats */}
-        <Grid cols={2} colsMd={4} gap={8} className="mb-12 max-w-4xl mx-auto">
+        <Grid cols={2} colsMd={4} colsLg={4} gap={8} className="mb-12 max-w-4xl mx-auto">
           <StatCard value="40+" label="Anos de Experiência" />
           <StatCard value="500+" label="Alunos Formados" />
           <StatCard value="90" label="Dias para Dominar" />

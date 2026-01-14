@@ -14,7 +14,7 @@ export function AboutSection() {
   return (
     <Section id="sobre" className="bg-gradient-to-b from-black to-gray-900 relative">
       <Container className="max-w-7xl">
-        <Grid cols={1} colsLg={2} gap={16} className="items-center">
+        <Grid cols={1} colsLg={2} gap={8} className="items-center lg:!gap-16 xl:!gap-20">
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-transparent rounded-2xl blur-xl"></div>
             <div className="relative bg-gray-900/50 backdrop-blur-sm border border-primary-500/20 rounded-2xl p-8">
@@ -46,13 +46,13 @@ export function AboutSection() {
 
             <div className="grid gap-6">
               {authorFeatures.map((item, index) => (
-                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-black/30 border border-gray-800 hover:border-primary-500/30 transition-colors">
+                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-black border border-primary-500 hover:border-primary-500 transition-colors">
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                    <p className="text-gray-400">{item.desc}</p>
+                    <h3 className="font-bold text-lg mb-1 text-white">{item.title}</h3>
+                    <p className="text-white">{item.desc}</p>
                   </div>
                 </div>
               ))}

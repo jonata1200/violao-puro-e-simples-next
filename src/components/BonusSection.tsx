@@ -3,7 +3,7 @@ import { Section, Container } from '@/design-system/components/layout';
 
 export function BonusSection() {
   return (
-    <section className="py-24 bg-gradient-to-r from-primary-600 to-primary-500 relative overflow-hidden">
+    <Section className="py-24 bg-gradient-to-r from-primary-600 to-primary-500 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>

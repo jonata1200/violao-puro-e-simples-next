@@ -58,8 +58,7 @@ export function FeatureCard({
         <div className="absolute -inset-4 bg-gradient-to-br from-primary-500/20 to-primary-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       )}
       <Card className={cn(
-        'relative text-center h-full transition-all duration-300',
-        variant === 'gradient' && 'bg-card/50 backdrop-blur-sm border-border hover:border-primary-500/30 transform hover:-translate-y-4',
+        'relative text-center h-full transition-all duration-300 bg-black border-primary-500 hover:border-primary-500 transform hover:-translate-y-4',
         className
       )}>
         <CardContent className="p-6 md:p-10">
@@ -68,10 +67,10 @@ export function FeatureCard({
           )}>
             <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
           </div>
-          <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 group-hover:text-primary-500 transition-colors">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">
             {title}
           </h3>
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+          <p className="text-white leading-relaxed text-base md:text-lg">
             {description}
           </p>
         </CardContent>

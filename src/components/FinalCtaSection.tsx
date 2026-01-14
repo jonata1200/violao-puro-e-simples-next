@@ -28,15 +28,15 @@ export function FinalCtaSection() {
           suas vidas com a música. Agora é a sua vez.
         </p>
 
-        <div className="bg-gradient-to-br from-gray-900 to-black p-10 rounded-3xl max-w-2xl mx-auto mb-16 border-2 border-primary-500/50 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-gray-900 to-black p-10 rounded-3xl max-w-2xl lg:max-w-5xl mx-auto mb-16 border-2 border-primary-500/50 relative overflow-hidden">
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary-500/10 rounded-full blur-2xl"></div>
           <div className="relative z-10">
             <h3 className="text-3xl font-bold mb-8 text-primary-500">CURSO COMPLETO</h3>
-            <Grid cols={1} colsMd={2} gap={4} className="text-left mb-8">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
               {finalFeatures.map((item, index) => (
-                <div key={index} className="flex items-center space-x-3">
+                <div key={index} className="flex items-center space-x-2 whitespace-nowrap">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-300">{item}</span>
+                  <span className="text-gray-300 text-sm lg:text-base">{item}</span>
                 </div>
               ))}
             </div>

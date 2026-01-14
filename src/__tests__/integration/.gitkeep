@@ -1,0 +1,21 @@
+# Testes de Integração
+
+Esta pasta contém os testes de integração que validam fluxos completos e interações entre componentes.
+
+## Estrutura
+
+Os testes de integração devem seguir o padrão:
+- `*.test.tsx` ou `*.test.ts` para testes de componentes/fluxos
+- Focar em fluxos completos do usuário
+- Usar MSW para mockar APIs quando necessário
+- Manter testes independentes e isolados
+
+## Executar Testes
+
+```bash
+# Executar apenas testes de integração
+npm run test:integration
+
+# Executar todos os testes (unitários + integração)
+npm test
+```

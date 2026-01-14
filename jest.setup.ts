@@ -1,11 +1,39 @@
 import '@testing-library/jest-dom'
 import { cleanup } from '@testing-library/react'
-import { afterEach } from '@jest/globals'
+import { afterEach, beforeAll, afterAll } from '@jest/globals'
 import React from 'react'
 
-// Limpar após cada teste
+// Configurar servidor MSW para testes de integração
+// Usando importação dinâmica para evitar problemas de inicialização
+let server: ReturnType<typeof import('msw/node').setupServer> | null = null
+
+// Inicializar MSW de forma assíncrona
+beforeAll(async () => {
+  try {
+    const { setupServer } = await import('msw/node')
+    const { handlers } = await import('./src/mocks/handlers')
+    
+    server = setupServer(...handlers)
+    server.listen({ onUnhandledRequest: 'warn' })
+  } catch (error) {
+    // MSW não disponível - continuar sem MSW (apenas para testes unitários)
+    // Isso é esperado se MSW não estiver sendo usado em todos os testes
+  }
+})
+
+// Resetar handlers após cada teste
 afterEach(() => {
   cleanup()
+  if (server) {
+    server.resetHandlers()
+  }
+})
+
+// Fechar servidor após todos os testes
+afterAll(() => {
+  if (server) {
+    server.close()
+  }
 })
 
 // Mock do Next.js router

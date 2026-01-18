@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { CookieBanner } from './CookieBanner'
+import { CookieBanner } from '@/components/CookieBanner'
 
 // Mock do localStorage
 const localStorageMock = (() => {

@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
 
 # debug
 npm-debug.log*

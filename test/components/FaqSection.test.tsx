@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { FaqSection } from './FaqSection'
+import { FaqSection } from '@/components/FaqSection'
 
 // Mock dos componentes do design system
 jest.mock('@/design-system/components/layout', () => ({

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { CustomVideoPlayer } from './CustomVideoPlayer'
+import { CustomVideoPlayer } from '@/components/CustomVideoPlayer'
 
 // Mock de HTMLVideoElement
 const mockPlay = jest.fn().mockResolvedValue(undefined)

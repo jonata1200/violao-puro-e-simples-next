@@ -20,15 +20,16 @@ const config: Config = {
   
   // Extensões de arquivo a serem testadas
   testMatch: [
+    '**/test/**/*.[jt]s?(x)',
     '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[jt]s?(x)',
+    '!**/src/**/*.test.[jt]s?(x)',
+    '!**/src/**/*.spec.[jt]s?(x)',
   ],
   
   // Cobertura
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.d.ts',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
     '!src/**/__tests__/**',
     '!src/**/*.test.{js,jsx,ts,tsx}',
     '!src/**/*.spec.{js,jsx,ts,tsx}',

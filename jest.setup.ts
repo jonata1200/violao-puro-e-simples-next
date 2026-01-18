@@ -11,7 +11,7 @@ let server: ReturnType<typeof import('msw/node').setupServer> | null = null
 beforeAll(async () => {
   try {
     const { setupServer } = await import('msw/node')
-    const { handlers } = await import('./src/mocks/handlers')
+    const { handlers } = await import('./test/mocks/handlers')
     
     server = setupServer(...handlers)
     server.listen({ onUnhandledRequest: 'warn' })

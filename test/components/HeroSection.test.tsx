@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { HeroSection } from './HeroSection'
+import { HeroSection } from '@/components/HeroSection'
 
 // Mock do CustomVideoPlayer
-jest.mock('./CustomVideoPlayer', () => {
+jest.mock('@/components/CustomVideoPlayer', () => {
   const React = require('react')
   return {
     CustomVideoPlayer: ({ src, poster }: any) => React.createElement('div', { 'data-testid': 'video-player' },

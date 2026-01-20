@@ -41,7 +41,7 @@ Este projeto serve como um exemplo completo de landing page moderna, demonstrand
 - Player de vídeo customizado
 - Gerenciamento de estado do cliente
 - SEO otimizado com metadados estruturados
-- Testes automatizados (unitários e integração)
+- Testes automatizados (unitários)
 - CI/CD com GitHub Actions
 - Deploy containerizado com Docker
 
@@ -143,7 +143,6 @@ Este projeto serve como um exemplo completo de landing page moderna, demonstrand
   - `@testing-library/react`: Renderização e queries para componentes React
   - `@testing-library/jest-dom`: Matchers customizados para DOM
   - `@testing-library/user-event`: Simulação de interações do usuário
-- **[MSW 2.12.7](https://mswjs.io/)**: Mock Service Worker para mock de APIs em testes
 - **[ts-jest 29.4.6](https://kulshekhar.github.io/ts-jest/)**: Processador TypeScript para Jest
 - **[jest-environment-jsdom](https://github.com/jsdom/jsdom)**: Ambiente de teste DOM para Jest
 
@@ -245,7 +244,7 @@ npm run lint
 
 ### 7. Testes
 
-O projeto possui uma suíte completa de testes unitários e de integração:
+O projeto possui uma suíte completa de testes unitários:
 
 ```bash
 # Executar todos os testes
@@ -259,9 +258,6 @@ npm run test:coverage
 
 # Executar testes para CI/CD
 npm run test:ci
-
-# Executar apenas testes de integração
-npm run test:integration
 ```
 
 #### Cobertura de Testes
@@ -275,9 +271,11 @@ O projeto possui thresholds de cobertura configurados para componentes críticos
 
 Os testes incluem:
 - Testes unitários de componentes
-- Testes de integração de fluxos completos
+- Testes de funções utilitárias
+- Testes de rotas de API
 - Testes de interação do usuário
-- Mock de APIs com MSW
+
+📚 **Documentação completa**: Veja [`docs/TESTES.md`](docs/TESTES.md) para mais detalhes sobre como executar os testes.
 
 ---
 
@@ -336,33 +334,21 @@ curl http://localhost:3000/api/health
 
 ## 🧪 Testes e Qualidade
 
-O projeto possui uma suíte completa de testes automatizados para garantir qualidade e confiabilidade:
+O projeto possui uma suíte completa de testes unitários automatizados para garantir qualidade e confiabilidade:
 
 ### Estrutura de Testes
 
 - **Testes Unitários**: Componentes individuais testados isoladamente
-- **Testes de Integração**: Fluxos completos do usuário testados end-to-end
-- **Mock Service Worker (MSW)**: Mock de APIs para testes isolados
+- **Testes de Funções Utilitárias**: Funções helper testadas isoladamente
+- **Testes de Rotas de API**: Endpoints testados isoladamente
 
-### Testes de Integração Incluídos
+### Testes Unitários Incluídos
 
-- ✅ Fluxo completo da landing page
-- ✅ Interação com banner de cookies
-- ✅ Interação com FAQ
-- ✅ Fluxo de oferta com timer
-- ✅ Fluxo do player de vídeo
-- ✅ Integração com API de health check
+- ✅ Componentes React (HeroSection, FaqSection, CookieBanner, CustomVideoPlayer, Button)
+- ✅ Funções utilitárias (utils.ts)
+- ✅ Rotas de API (health check)
 
-### CI/CD
-
-O projeto utiliza **GitHub Actions** para execução automática de testes em cada push e pull request:
-
-- Execução de linter (ESLint)
-- Execução de testes (Jest)
-- Geração de relatórios de cobertura
-- Upload de cobertura para Codecov
-
-Veja o workflow em [`.github/workflows/test.yml`](.github/workflows/test.yml)
+📚 **Documentação completa**: Veja [`docs/TESTES.md`](docs/TESTES.md) para mais detalhes sobre como executar os testes.
 
 ---
 
@@ -426,8 +412,6 @@ violao-puro-e-simples-next/
 │   ├── app/                        # App Router do Next.js
 │   │   ├── api/                    # API Routes
 │   │   │   └── health/             # Endpoint de health check
-│   │   │       ├── __tests__/      # Testes do health check
-│   │   │       │   └── route.test.ts
 │   │   │       └── route.ts        # Health check para Docker
 │   │   ├── globals.css             # Estilos globais (Tailwind)
 │   │   ├── layout.tsx              # Layout raiz com metadados e providers
@@ -444,17 +428,13 @@ violao-puro-e-simples-next/
 │   │   ├── BenefitsSection.tsx     # Seção de benefícios
 │   │   ├── BonusSection.tsx        # Seção de bônus
 │   │   ├── CookieBanner.tsx        # Banner de consentimento de cookies
-│   │   ├── CookieBanner.test.tsx   # Testes do banner de cookies
 │   │   ├── CourseModulesSection.tsx # Seção de módulos do curso
 │   │   ├── CustomVideoPlayer.tsx   # Player de vídeo customizado
-│   │   ├── CustomVideoPlayer.test.tsx # Testes do player de vídeo
 │   │   ├── FaqSection.tsx          # Seção de perguntas frequentes
-│   │   ├── FaqSection.test.tsx     # Testes do FAQ
 │   │   ├── FinalCtaSection.tsx     # CTA final
 │   │   ├── Footer.tsx              # Rodapé
 │   │   ├── GoogleAnalytics.tsx     # Integração Google Analytics
 │   │   ├── HeroSection.tsx         # Seção hero principal
-│   │   ├── HeroSection.test.tsx    # Testes do hero
 │   │   ├── OfferSection.tsx        # Seção de oferta
 │   │   ├── TestimonialsSection.tsx # Seção de depoimentos
 │   │   ├── TimedOfferSection.tsx   # Seção de oferta com timer
@@ -462,7 +442,6 @@ violao-puro-e-simples-next/
 │   │       ├── accordion.tsx       # Componente de acordeão
 │   │       ├── badge.tsx           # Componente de badge
 │   │       ├── button.tsx          # Componente de botão
-│   │       ├── button.test.tsx     # Testes do botão
 │   │       ├── card.tsx            # Componente de card
 │   │       ├── dialog.tsx          # Componente de diálogo
 │   │       └── input.tsx           # Componente de input
@@ -489,32 +468,32 @@ violao-puro-e-simples-next/
 │   │   │   └── index.ts          # Exportações
 │   │   └── README.md              # Documentação do design system
 │   │
-│   ├── __tests__/                 # Testes de integração
-│   │   └── integration/           # Testes end-to-end
-│   │       ├── api-integration.test.ts
-│   │       ├── cookie-banner-flow.test.tsx
-│   │       ├── faq-interaction.test.tsx
-│   │       ├── landing-page-flow.test.tsx
-│   │       ├── timed-offer-flow.test.tsx
-│   │       └── video-player-flow.test.tsx
-│   │
-│   ├── lib/                       # Utilitários e helpers
-│   │   ├── utils.ts               # Funções utilitárias
-│   │   └── utils.test.ts          # Testes das utils
-│   │
-│   └── mocks/                     # Mocks para testes
-│       ├── handlers.ts            # Handlers do MSW
-│       ├── server.ts              # MSW server setup
-│       ├── browser.ts             # MSW browser setup
-│       └── index.ts               # Exportações
+│   └── lib/                       # Utilitários e helpers
+│       └── utils.ts               # Funções utilitárias
+│
+├── test/                          # Testes unitários
+│   ├── app/                       # Testes de rotas e páginas
+│   │   └── api/
+│   │       └── health/
+│   │           └── route.test.ts   # Teste da rota de health check
+│   ├── components/                # Testes de componentes
+│   │   ├── CookieBanner.test.tsx
+│   │   ├── CustomVideoPlayer.test.tsx
+│   │   ├── FaqSection.test.tsx
+│   │   ├── HeroSection.test.tsx
+│   │   └── ui/
+│   │       └── button.test.tsx
+│   └── lib/                       # Testes de utilitários
+│       └── utils.test.ts
+│
+├── docs/                          # Documentação do projeto
+│   ├── TESTES.md                  # Documentação sobre testes
+│   └── DESIGN SYSTEM.md           # Documentação do design system
 │
 ├── .next/                          # Build output (gerado automaticamente)
 ├── node_modules/                   # Dependências (gerado automaticamente)
 │
 ├── .dockerignore                   # Arquivos ignorados no build Docker
-├── .github/                        # Configurações do GitHub
-│   └── workflows/                  # GitHub Actions
-│       └── test.yml                # Workflow de testes CI/CD
 ├── docker-compose.yml              # Orquestração Docker
 ├── Dockerfile                      # Configuração Docker otimizada (3 estágios)
 ├── DOCKER.md                       # Documentação completa do Docker
@@ -536,12 +515,11 @@ violao-puro-e-simples-next/
 - **`src/components/`**: Componentes React reutilizáveis organizados por funcionalidade.
   - **`ui/`**: Componentes UI baseados em shadcn/ui e Radix UI
 - **`src/design-system/`**: Design System completo com tokens, componentes de layout e padrões.
-- **`src/__tests__/`**: Testes de integração e end-to-end.
 - **`src/lib/`**: Funções utilitárias e helpers reutilizáveis.
-- **`src/mocks/`**: Configuração do MSW para mock de APIs em testes.
+- **`test/`**: Testes unitários organizados seguindo a estrutura do código fonte.
+- **`docs/`**: Documentação do projeto (testes, design system, etc.).
 - **`public/`**: Arquivos estáticos servidos diretamente (imagens, vídeos, favicons).
 - **`.next/`**: Pasta gerada automaticamente durante o build (não versionada no Git).
-- **`.github/workflows/`**: Configurações de CI/CD com GitHub Actions.
 
 ---
 

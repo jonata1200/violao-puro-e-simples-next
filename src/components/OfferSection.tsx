@@ -67,6 +67,27 @@ export function OfferSection() {
                     <p className="text-3xl font-bold text-primary-400 mb-2">ou 12x de R$ 30,72*</p>
                     <p className="text-sm text-gray-300">*no cartão de crédito</p>
                   </div>
+                  
+                  <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mb-6">
+                    <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-sm sm:text-base md:text-lg px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                      🎸 COMEÇAR MINHA JORNADA MUSICAL
+                    </button>
+                  </a>
+                  
+                  <div className="hidden sm:flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 text-sm text-gray-400">
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Acesso imediato</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Shield className="w-4 h-4 text-green-500" />
+                      <span>Garantia de 7 dias</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Headphones className="w-4 h-4 text-green-500" />
+                      <span>Suporte direto</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -84,27 +105,6 @@ export function OfferSection() {
                     </div>
                   </div>
                 ))}
-              </div>
-              
-              <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mt-6">
-                <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-sm sm:text-base md:text-lg px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                  🎸 COMEÇAR MINHA JORNADA MUSICAL
-                </button>
-              </a>
-              
-              <div className="flex items-center justify-center space-x-8 text-sm text-gray-400">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span>Acesso imediato</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Shield className="w-4 h-4 text-green-500" />
-                  <span>Garantia de 7 dias</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Headphones className="w-4 h-4 text-green-500" />
-                  <span>Suporte direto</span>
-                </div>
               </div>
             </div>
         </Grid>

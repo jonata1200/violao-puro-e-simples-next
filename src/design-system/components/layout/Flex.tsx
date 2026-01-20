@@ -80,7 +80,13 @@ export function Flex({
       'items-baseline': align === 'baseline',
     },
     wrap && 'flex-wrap',
-    `gap-${gap}`,
+    {
+      'gap-0': gap === 0,
+      'gap-2': gap === 2,
+      'gap-4': gap === 4,
+      'gap-6': gap === 6,
+      'gap-8': gap === 8,
+    },
     className
   )
   

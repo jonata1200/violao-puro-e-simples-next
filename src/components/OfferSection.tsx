@@ -1,5 +1,6 @@
-import { Star, Target, Users, Heart, Zap, CheckCircle, Shield, Headphones } from 'lucide-react';
+import { Star, Target, Users, Heart, Zap, CheckCircle, Shield, Headphones, Guitar } from 'lucide-react';
 import { Section, Container, Grid } from '@/design-system/components/layout';
+import { CTAButton } from '@/components/ui/cta-button';
 
 export function OfferSection() {
     const offerFeatures = [
@@ -69,9 +70,10 @@ export function OfferSection() {
                   </div>
                   
                   <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mb-6">
-                    <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-sm sm:text-base md:text-lg px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                      🎸 COMEÇAR MINHA JORNADA MUSICAL
-                    </button>
+                    <CTAButton size="ctaCompact" className="w-full">
+                      <Guitar className="w-4 h-4 md:w-5 md:h-5" />
+                      <span>COMEÇAR MINHA JORNADA MUSICAL</span>
+                    </CTAButton>
                   </a>
                   
                   <div className="hidden sm:flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 text-sm text-gray-400">

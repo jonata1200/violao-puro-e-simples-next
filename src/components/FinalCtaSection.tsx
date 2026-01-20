@@ -1,5 +1,6 @@
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Guitar } from 'lucide-react';
 import { Section, Container, Grid } from '@/design-system/components/layout';
+import { CTAButton } from '@/components/ui/cta-button';
 
 export function FinalCtaSection() {
     const finalFeatures = [
@@ -54,9 +55,10 @@ export function FinalCtaSection() {
             </div>
             
             <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer">
-              <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-base sm:text-lg md:text-xl lg:text-2xl px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                🎸 COMEÇAR AGORA
-              </button>
+              <CTAButton size="ctaLarge" className="w-full">
+                <Guitar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                <span>COMEÇAR AGORA</span>
+              </CTAButton>
             </a>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { CustomVideoPlayer } from './CustomVideoPlayer';
 import { Container } from '@/design-system/components/layout';
 import { Grid } from '@/design-system/components/layout';
 import { StatCard } from '@/design-system/components/patterns';
+import { CTAButton } from '@/components/ui/cta-button';
 
 export function HeroSection() {
   // REMOVIDO: Toda a lógica de useRef e useEffect para o autoplay foi retirada.
@@ -51,13 +52,10 @@ export function HeroSection() {
         {/* CTA Principal */}
         <div className="space-y-6 mb-16">
           <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer">
-            <button className="group bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-sm sm:text-base md:text-lg lg:text-xl px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl relative overflow-hidden">
-              <span className="relative z-10 flex items-center justify-center space-x-3">
-                <Guitar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-                <span>COMEÇAR MINHA JORNADA MUSICAL</span>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            <CTAButton size="cta">
+              <Guitar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+              <span>COMEÇAR MINHA JORNADA MUSICAL</span>
+            </CTAButton>
           </a>
         </div>
       </Container>

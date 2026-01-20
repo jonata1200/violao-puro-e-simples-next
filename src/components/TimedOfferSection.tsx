@@ -1,5 +1,6 @@
-import { Clock } from 'lucide-react';
+import { Clock, Flame } from 'lucide-react';
 import { Section, Container } from '@/design-system/components/layout';
+import { CTAButton } from '@/components/ui/cta-button';
 
 interface TimedOfferSectionProps {
   timeLeft: {
@@ -42,9 +43,10 @@ export function TimedOfferSection({ timeLeft }: TimedOfferSectionProps) {
           </div>
         </div>
         <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer">
-          <button className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-black font-bold text-base sm:text-lg md:text-xl lg:text-2xl px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-6 lg:px-14 lg:py-7 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl">
-            🔥 GARANTIR MINHA VAGA
-          </button>
+          <CTAButton size="ctaExtraLarge">
+            <Flame className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+            <span>GARANTIR MINHA VAGA</span>
+          </CTAButton>
         </a>
       </Container>
     </Section>

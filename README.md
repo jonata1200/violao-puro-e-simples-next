@@ -120,6 +120,9 @@ Este projeto serve como um exemplo completo de landing page moderna, demonstrand
 
 ### Estilização
 - **[Tailwind CSS 3.4.1](https://tailwindcss.com/)**: Framework CSS utility-first para design rápido
+  - Configuração otimizada com safelist para classes dinâmicas
+  - Uso correto de `cn()` (clsx + tailwind-merge) para combinação de classes
+  - Sem uso de template literals problemáticos ou !important
 - **[PostCSS 8](https://postcss.org/)**: Processador CSS para transformações
 - **[Autoprefixer](https://github.com/postcss/autoprefixer)**: Plugin PostCSS para prefixos CSS automáticos
 
@@ -268,9 +271,11 @@ O projeto possui thresholds de cobertura configurados para componentes críticos
 - **CookieBanner**: 100% de cobertura
 - **HeroSection**: 100% de cobertura
 - **FaqSection**: 100% de cobertura
+- **Design System**: Componentes de layout e padrões com testes completos
 
 Os testes incluem:
 - Testes unitários de componentes
+- Testes de componentes do design system
 - Testes de funções utilitárias
 - Testes de rotas de API
 - Testes de interação do usuário
@@ -345,6 +350,7 @@ O projeto possui uma suíte completa de testes unitários automatizados para gar
 ### Testes Unitários Incluídos
 
 - ✅ Componentes React (HeroSection, FaqSection, CookieBanner, CustomVideoPlayer, Button)
+- ✅ Componentes do Design System (Container, Section, Grid, Flex, FeatureCard, ModuleCard)
 - ✅ Funções utilitárias (utils.ts)
 - ✅ Rotas de API (health check)
 
@@ -376,6 +382,8 @@ O projeto possui um **Design System completo** e documentado localizado em `src/
 - **CardWithImage**: Card com imagem e conteúdo
 - **FeatureCard**: Card para destacar features
 - **StatCard**: Card para exibir estatísticas
+- **ModuleCard**: Card para exibir módulos de curso com número, título e lista de itens
+- **TestimonialCard**: Card para exibir depoimentos em vídeo
 
 ### Componentes UI (shadcn/ui)
 
@@ -387,7 +395,7 @@ Componentes baseados em Radix UI e estilizados com Tailwind:
 - **Accordion**: Acordeão expansível
 - **Dialog**: Modal/diálogo
 
-📚 **Documentação completa**: Veja [`src/design-system/README.md`](src/design-system/README.md) para mais detalhes.
+📚 **Documentação completa**: Veja [`docs/DESIGN SYSTEM.md`](docs/DESIGN%20SYSTEM.md) para mais detalhes sobre tokens, componentes e guia de uso.
 
 ---
 
@@ -458,6 +466,8 @@ violao-puro-e-simples-next/
 │   │   │       ├── CardWithImage.tsx
 │   │   │       ├── FeatureCard.tsx
 │   │   │       ├── StatCard.tsx
+│   │   │       ├── ModuleCard.tsx
+│   │   │       ├── TestimonialCard.tsx
 │   │   │       └── index.ts
 │   │   ├── tokens/                # Tokens de design
 │   │   │   ├── colors.ts          # Paleta de cores
@@ -483,6 +493,16 @@ violao-puro-e-simples-next/
 │   │   ├── HeroSection.test.tsx
 │   │   └── ui/
 │   │       └── button.test.tsx
+│   ├── design-system/            # Testes do design system
+│   │   └── components/
+│   │       ├── layout/           # Testes de componentes de layout
+│   │       │   ├── Container.test.tsx
+│   │       │   ├── Section.test.tsx
+│   │       │   ├── Grid.test.tsx
+│   │       │   └── Flex.test.tsx
+│   │       └── patterns/         # Testes de componentes de padrão
+│   │           ├── FeatureCard.test.tsx
+│   │           └── ModuleCard.test.tsx
 │   └── lib/                       # Testes de utilitários
 │       └── utils.test.ts
 │

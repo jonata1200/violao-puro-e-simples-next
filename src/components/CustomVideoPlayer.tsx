@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface CustomVideoPlayerProps {
   src: string;
@@ -95,7 +96,10 @@ export const CustomVideoPlayer = forwardRef<HTMLVideoElement, CustomVideoPlayerP
     const aspectRatioClass = aspectRatio === 'vertical' ? 'aspect-[9/16]' : 'aspect-video';
 
     return (
-      <div ref={containerRef} className={`relative group w-full ${aspectRatioClass} bg-black rounded-xl overflow-hidden`}>
+      <div ref={containerRef} className={cn(
+        "relative group w-full bg-black rounded-xl overflow-hidden",
+        aspectRatioClass
+      )}>
           <video
               ref={internalVideoRef}
               src={src}
@@ -106,11 +110,16 @@ export const CustomVideoPlayer = forwardRef<HTMLVideoElement, CustomVideoPlayerP
               width="100%"
               height="100%"
               playsInline
-              className={`w-full h-full rounded-xl cursor-pointer ${isFullscreen ? 'object-contain' : 'object-cover'}`}
+              className={cn(
+                "w-full h-full rounded-xl cursor-pointer",
+                isFullscreen ? 'object-contain' : 'object-cover'
+              )}
           />
           
-          <div className={`absolute inset-0 flex flex-col justify-between items-center bg-black/40 transition-opacity duration-300 pointer-events-none 
-            ${showInitialPlayIcon && !isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+          <div className={cn(
+            "absolute inset-0 flex flex-col justify-between items-center bg-black/40 transition-opacity duration-300 pointer-events-none",
+            showInitialPlayIcon && !isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+          )}>
               <div className="flex-grow flex items-center justify-center">
                   {!isPlaying && (
                       <button

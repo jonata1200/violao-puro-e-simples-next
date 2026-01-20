@@ -36,7 +36,7 @@ export function OfferSection() {
             </p>
           </div>
         
-        <Grid cols={1} colsLg={2} gap={8} className="items-center lg:!gap-10 xl:!gap-12">
+        <Grid cols={1} colsLg={2} gap={8} className="items-center lg:gap-10 xl:gap-12">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-transparent rounded-3xl blur-xl"></div>
               <div className="relative bg-gray-900/80 backdrop-blur-sm border border-primary-500/30 rounded-3xl p-8">

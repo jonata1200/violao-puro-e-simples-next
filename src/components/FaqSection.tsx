@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { Section, Container } from '@/design-system/components/layout';
+import { cn } from '@/lib/utils';
 
 interface FaqSectionProps {
   openFaq: number | null;
@@ -34,7 +35,10 @@ export function FaqSection({ openFaq, toggleFaq }: FaqSectionProps) {
                 className="w-full text-left p-6 flex items-center justify-between focus:outline-none"
               >
                 <h3 className="text-xl font-bold text-primary-500 pr-4">{faq.q}</h3>
-                <ChevronDown className={`w-6 h-6 text-primary-500 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                <ChevronDown className={cn(
+                  "w-6 h-6 text-primary-500 transition-transform duration-300",
+                  openFaq === index && "rotate-180"
+                )} />
               </button>
               {openFaq === index && (
                 <div className="px-6 pb-6">

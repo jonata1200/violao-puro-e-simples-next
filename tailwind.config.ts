@@ -8,6 +8,17 @@ const config: Config = {
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/design-system/**/*.{js,ts,jsx,tsx,mdx}",
 	],
+	safelist: [
+		// Classes de gradiente usadas dinamicamente em BenefitsSection
+		'from-blue-500/20',
+		'to-blue-600/20',
+		'from-purple-500/20',
+		'to-purple-600/20',
+		'from-green-500/20',
+		'to-green-600/20',
+		'from-primary-500/20',
+		'to-primary-600/20',
+	],
 	theme: {
     	extend: {
     		backgroundImage: {

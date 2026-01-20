@@ -72,7 +72,7 @@ export function OfferSection() {
                   <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer" className="block mb-6">
                     <CTAButton size="ctaCompact" className="w-full">
                       <Guitar className="w-4 h-4 md:w-5 md:h-5" />
-                      <span>COMEÇAR MINHA JORNADA MUSICAL</span>
+                      <span>COMEÇAR JORNADA MUSICAL</span>
                     </CTAButton>
                   </a>
                   

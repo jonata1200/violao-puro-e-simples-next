@@ -54,7 +54,7 @@ export function HeroSection() {
           <a href="https://pay.hotmart.com/S37582308X" target="_blank" rel="noopener noreferrer">
             <CTAButton size="cta">
               <Guitar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-              <span>COMEÇAR MINHA JORNADA MUSICAL</span>
+              <span>COMEÇAR JORNADA MUSICAL</span>
             </CTAButton>
           </a>
         </div>

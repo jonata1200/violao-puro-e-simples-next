@@ -360,7 +360,7 @@ O projeto possui uma suíte completa de testes unitários automatizados para gar
 
 ## 🎨 Design System
 
-O projeto possui um **Design System completo** e documentado localizado em `src/design-system/`:
+O projeto possui um **Design System completo** e documentado localizado em `src/design-system/`. A documentação está organizada em seções dentro de `docs/design-system/`:
 
 ### Tokens de Design
 
@@ -395,7 +395,13 @@ Componentes baseados em Radix UI e estilizados com Tailwind:
 - **Accordion**: Acordeão expansível
 - **Dialog**: Modal/diálogo
 
-📚 **Documentação completa**: Veja [`docs/DESIGN SYSTEM.md`](docs/DESIGN%20SYSTEM.md) para mais detalhes sobre tokens, componentes e guia de uso.
+📚 **Documentação completa**: Veja [`docs/design-system/`](docs/design-system/) para documentação detalhada subdividida por seções:
+- [Princípios de Design](docs/design-system/principios.md)
+- [Tokens](docs/design-system/tokens.md)
+- [Componentes de Layout](docs/design-system/componentes-layout.md)
+- [Componentes de Padrões](docs/design-system/componentes-padroes.md)
+- [Componentes UI](docs/design-system/componentes-ui.md)
+- [Guia de Uso](docs/design-system/guia-uso.md)
 
 ---
 
@@ -476,7 +482,6 @@ violao-puro-e-simples-next/
 │   │   │   ├── shadows.ts        # Sistema de sombras
 │   │   │   ├── borders.ts        # Padrões de bordas
 │   │   │   └── index.ts          # Exportações
-│   │   └── README.md              # Documentação do design system
 │   │
 │   └── lib/                       # Utilitários e helpers
 │       └── utils.ts               # Funções utilitárias
@@ -507,8 +512,16 @@ violao-puro-e-simples-next/
 │       └── utils.test.ts
 │
 ├── docs/                          # Documentação do projeto
-│   ├── TESTES.md                  # Documentação sobre testes
-│   └── DESIGN SYSTEM.md           # Documentação do design system
+│   ├── testes                     # Documentação sobre testes 
+│   |   ├── testes.md              # Execução dos testes
+│   └── design-system/             # Documentação do design system
+│       ├── README.md              # Visão geral e índice
+│       ├── principios.md          # Princípios de design
+│       ├── tokens.md              # Tokens (cores, tipografia, espaçamento)
+│       ├── componentes-layout.md  # Componentes de layout
+│       ├── componentes-padroes.md # Componentes de padrões
+│       ├── componentes-ui.md      # Componentes UI
+│       └── guia-uso.md            # Guia de uso e boas práticas
 │
 ├── .next/                          # Build output (gerado automaticamente)
 ├── node_modules/                   # Dependências (gerado automaticamente)

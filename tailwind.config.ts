@@ -48,11 +48,11 @@ const config: Config = {
     		// Usar spacing do design system
     		spacing: spacing,
     		// Usar tipografia do design system
-    		fontFamily: typography.fontFamily,
-    		fontSize: typography.fontSize,
-    		fontWeight: typography.fontWeight,
-    		lineHeight: typography.lineHeight,
-    		letterSpacing: typography.letterSpacing,
+    		fontFamily: typography.fontFamily as any,
+    		fontSize: typography.fontSize as any,
+    		fontWeight: typography.fontWeight as any,
+    		lineHeight: typography.lineHeight as any,
+    		letterSpacing: typography.letterSpacing as any,
     		colors: {
     			// Cores do design system (convertidas para formato Tailwind)
     			primary: {

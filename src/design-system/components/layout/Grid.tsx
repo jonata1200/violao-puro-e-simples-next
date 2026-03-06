@@ -21,7 +21,7 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Número de colunas no desktop (padrão: 3)
    */
-  colsLg?: 3 | 4 | 6 | 12
+  colsLg?: 2 | 3 | 4 | 6 | 12
   /**
    * Gap entre itens (padrão: 4)
    */
@@ -67,6 +67,7 @@ export function Grid({
       'md:grid-cols-6': colsMd === 6,
     },
     {
+      'lg:grid-cols-2': colsLg === 2,
       'lg:grid-cols-3': colsLg === 3,
       'lg:grid-cols-4': colsLg === 4,
       'lg:grid-cols-6': colsLg === 6,

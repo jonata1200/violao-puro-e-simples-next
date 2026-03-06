@@ -36,15 +36,14 @@ const config: Config = {
   ],
   
   // Thresholds de cobertura
-  // Nota: Thresholds globais desabilitados temporariamente enquanto aumentamos cobertura
-  // Componentes críticos já estão com alta cobertura
   coverageThreshold: {
-    // global: {
-    //   branches: 80,
-    //   functions: 80,
-    //   lines: 80,
-    //   statements: 80,
-    // },
+    // Definimos como 0 para satisfazer o TypeScript sem forçar a cobertura global
+    global: {
+      branches: 0,
+      functions: 0,
+      lines: 0,
+      statements: 0,
+    },
     // Thresholds por arquivo para componentes críticos
     './src/lib/utils.ts': {
       branches: 100,

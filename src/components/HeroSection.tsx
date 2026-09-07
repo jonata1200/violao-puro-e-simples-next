@@ -1,0 +1,70 @@
+// src/components/HeroSection.tsx
+// REMOVIDO: "use client";, useRef, e useEffect, pois não são mais necessários.
+
+import { ChevronDown, Guitar } from 'lucide-react';
+import { CustomVideoPlayer } from './CustomVideoPlayer';
+import { Container } from '@/design-system/components/layout';
+import { Grid } from '@/design-system/components/layout';
+import { StatCard } from '@/design-system/components/patterns';
+import { CTAButton } from '@/components/ui/cta-button';
+import { HOTMART_CHECKOUT_URL } from '@/lib/constants';
+
+export function HeroSection() {
+  // REMOVIDO: Toda a lógica de useRef e useEffect para o autoplay foi retirada.
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <Container className="text-center relative z-10">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight pt-4">
+          De <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Iniciante a Violonista Completo</span> <span className="text-4xl md:text-5xl lg:text-6xl text-gray-300">em Pouco Tempo</span>
+        </h1>
+        
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="relative bg-gray-900/50 backdrop-blur-sm border border-primary-500/30 rounded-2xl p-4">
+            <CustomVideoPlayer
+              src="/videos/video-de-vendas-violao-puro-e-simples.mp4"
+              poster="/violao-puro-e-simples-banner.webp"
+              aspectRatio="horizontal"
+              showInitialPlayIcon={true}
+            />
+          </div>
+        </div>
+        
+        {/* Subtítulo */}
+        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          Domine acordes, escalas, batidas e solos com o método testado que já transformou 
+          <span className="text-primary-500 font-semibold"> centenas de alunos</span> em violonistas independentes
+        </p>
+
+        {/* Stats */}
+        <Grid cols={2} colsMd={4} colsLg={4} gap={8} className="mb-12 max-w-4xl mx-auto">
+          <StatCard value="40+" label="Anos de Experiência" />
+          <StatCard value="500+" label="Alunos Formados" />
+          <StatCard value="90" label="Dias para Dominar" />
+          <StatCard value="100%" label="Método Testado" />
+        </Grid>
+
+        {/* CTA Principal */}
+        <div className="space-y-6 mb-16">
+          <a href={HOTMART_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+            <CTAButton size="cta">
+              <Guitar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+              <span>COMEÇAR JORNADA MUSICAL</span>
+            </CTAButton>
+          </a>
+        </div>
+      </Container>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ChevronDown className="w-6 h-6 text-primary-500" />
+      </div>
+    </section>
+  );
+}
